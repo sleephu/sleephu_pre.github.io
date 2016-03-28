@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maps on Grid Side</title>
+    <link>http://sleephu.github.io/map/</link>
+    <description>Recent content in Maps on Grid Side</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright &amp;#169; by Jackie Hu</copyright>
+    <lastBuildDate>Wed, 29 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://sleephu.github.io/map/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>This is the title</title>
+      <link>http://sleephu.github.io/map/food/</link>
+      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://sleephu.github.io/map/food/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>One</title>
+      <link>http://sleephu.github.io/map/one/</link>
+      <pubDate>Sat, 25 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://sleephu.github.io/map/one/</guid>
+      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vulputate
+vehicula mi id fringilla. Interdum et malesuada fames ac ante ipsum primis in
+faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+posuere cubilia Curae; Proin rutrum vestibulum quam vitae ultrices. Suspendisse
+dui tortor, suscipit id augue et, placerat placerat ipsum. Nam vulputate ex
+eget varius convallis. Nullam mollis egestas ex eget faucibus. Maecenas ut est
+a diam ullamcorper aliquet at vel ante. Fusce ac lacinia tortor.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

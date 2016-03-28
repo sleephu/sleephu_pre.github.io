@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring Security on Grid Side</title>
+    <link>http://sleephu.github.io/tags/spring-security/</link>
+    <description>Recent content in Spring Security on Grid Side</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright &amp;#169; by Jackie Hu</copyright>
+    <atom:link href="http://sleephu.github.io/tags/spring-security/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>E-Commerce Web Platform for Restaurants</title>
+      <link>http://sleephu.github.io/project/e-commerce/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://sleephu.github.io/project/e-commerce/</guid>
+      <description>&lt;p&gt;● A C2C web application was developed for restaurants in Java in Eclipse.&lt;/p&gt;
+
+&lt;p&gt;● The features include registration, login, restaurants search feature, menu viewing, order processing and reservation etc.&lt;/p&gt;
+
+&lt;p&gt;● Designed and implemented data model in MySQL, and used hibernate as ORM for persistence.&lt;/p&gt;
+
+&lt;p&gt;● Technologies used: Spring MVC framework, Hibernate, and Spring Security were used. jQuery, and Bootstrap framework were used on the client side&lt;/p&gt;
+
+&lt;p&gt;@Github: &lt;a href=&#34;https://github.com/sleephu/spring-MVC-project&#34;&gt;https://github.com/sleephu/spring-MVC-project&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

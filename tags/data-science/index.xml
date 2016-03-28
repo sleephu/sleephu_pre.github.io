@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Science on Grid Side</title>
+    <link>http://sleephu.github.io/tags/data-science/</link>
+    <description>Recent content in Data Science on Grid Side</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright &amp;#169; by Jackie Hu</copyright>
+    <atom:link href="http://sleephu.github.io/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Climate Change Big Data Analytic System Development</title>
+      <link>http://sleephu.github.io/project/climate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://sleephu.github.io/project/climate/</guid>
+      <description>&lt;p&gt;● A big data analytics platform was implemented with Spark and Cassandra (Deployed on Amazon AWS).&lt;/p&gt;
+
+&lt;p&gt;● Analyzed GSOD Climate data from 1921 - 2013, (Raw data size around 21 GB).&lt;/p&gt;
+
+&lt;p&gt;● Parsed data with Python and developed apps in Java for data cleansing and preprocessing, and loaded into Cassandra.&lt;/p&gt;
+
+&lt;p&gt;● Implemented ARIMA algorithms with MATLAB ARIMA tool jar package to build prediction model for future climate.&lt;/p&gt;
+
+&lt;p&gt;● Implemented k-means algorithms on Apache Spark cluster which provides real-time analytics capabilities to build clustering model to find areas with similar climate condition.&lt;/p&gt;
+
+&lt;p&gt;● Built a responsive UI using Spring framework for interactive analysis.&lt;/p&gt;
+
+&lt;p&gt;● Technologies used: Spark, Cassandra, Spring framework were used at back-end, Google Chart and Bootstrap framework were used at front-end.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
