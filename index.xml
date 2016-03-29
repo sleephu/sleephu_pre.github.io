@@ -7,17 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;#169; by Jackie Hu</copyright>
-    <lastBuildDate>Wed, 29 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Mar 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://sleephu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Info</title>
-      <link>http://sleephu.github.io/future/dream/info/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
+      <title>Test</title>
+      <link>http://sleephu.github.io/post/test/</link>
+      <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://sleephu.github.io/future/dream/info/</guid>
-      <description>&lt;p&gt;You can optionally set an image in the front matter of a post using
-&lt;code&gt;image = &amp;quot;...&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+      <guid>http://sleephu.github.io/post/test/</guid>
+      <description>&lt;p&gt;if i can fly.&lt;/p&gt;
 </description>
     </item>
     
@@ -29,17 +28,6 @@
       <guid>http://sleephu.github.io/post/info/</guid>
       <description>&lt;p&gt;You can optionally set an image in the front matter of a post using
 &lt;code&gt;image = &amp;quot;...&amp;quot;&lt;/code&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Redirect</title>
-      <link>http://sleephu.github.io/future/dream/redirect/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://sleephu.github.io/future/dream/redirect/</guid>
-      <description>&lt;p&gt;You can optionally set the front matter &lt;code&gt;redirect = &amp;quot;url&amp;quot;&lt;/code&gt; to automatically
-redirect the content to another page.&lt;/p&gt;
 </description>
     </item>
     
@@ -150,6 +138,15 @@ redirect the content to another page.&lt;/p&gt;
       <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
       
       <guid>http://sleephu.github.io/gallery/jars/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>This is the title</title>
+      <link>http://sleephu.github.io/gallery/phone/</link>
+      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://sleephu.github.io/gallery/phone/</guid>
       <description></description>
     </item>
     
