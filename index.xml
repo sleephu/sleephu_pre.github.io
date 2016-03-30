@@ -21,134 +21,110 @@
     </item>
     
     <item>
+      <title>Info</title>
+      <link>http://sleephu.github.io/post/info/</link>
+      <pubDate>Tue, 29 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://sleephu.github.io/post/info/</guid>
+      <description>&lt;p&gt;Just for fun.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Test</title>
       <link>http://sleephu.github.io/post/test/</link>
       <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>http://sleephu.github.io/post/test/</guid>
-      <description>&lt;p&gt;if i can fly.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Info</title>
-      <link>http://sleephu.github.io/post/info/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://sleephu.github.io/post/info/</guid>
-      <description>&lt;p&gt;You can optionally set an image in the front matter of a post using
-&lt;code&gt;image = &amp;quot;...&amp;quot;&lt;/code&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Redirect</title>
-      <link>http://sleephu.github.io/post/redirect/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://sleephu.github.io/post/redirect/</guid>
-      <description>&lt;p&gt;You can optionally set the front matter &lt;code&gt;redirect = &amp;quot;url&amp;quot;&lt;/code&gt; to automatically
-redirect the content to another page.&lt;/p&gt;
+      <description>&lt;p&gt;If I can fly.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>This is the title</title>
-      <link>http://sleephu.github.io/gallery/anothercar/</link>
+      <link>http://sleephu.github.io/model/food/</link>
       <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://sleephu.github.io/gallery/anothercar/</guid>
+      <guid>http://sleephu.github.io/model/food/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>This is the title</title>
-      <link>http://sleephu.github.io/gallery/anothercup/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
+      <title>Airline On-time Performance Big Data Analytic System Development</title>
+      <link>http://sleephu.github.io/project/airline/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://sleephu.github.io/gallery/anothercup/</guid>
-      <description></description>
+      <guid>http://sleephu.github.io/project/airline/</guid>
+      <description>&lt;p&gt;● A big data analytics platform was implemented with Hadoop and HBase (Deployed on Amazon AWS).&lt;/p&gt;
+
+&lt;p&gt;● Analyzed Airline On-time performance data from 1987 to 2008 with hundred millions of records.&lt;/p&gt;
+
+&lt;p&gt;● Set up development environment in EC2: Java Environment setup, Hadoop, HBase, Pig, Apache Phoenix, Hive, Spark, Tomcat installation and configuration.&lt;/p&gt;
+
+&lt;p&gt;● Developed 10+ MapReduce jobs, several Pig UDF in Java and 10+ Pig scripts for data cleansing and preprocessing, and stored refined data to HBase.&lt;/p&gt;
+
+&lt;p&gt;● Implemented logistic regression algorithm using Spark ML-Lib to predict airline delays.&lt;/p&gt;
+
+&lt;p&gt;● Technologies used: Hadoop, HBase, Hive, Apache Phoenix, Pig were used at back-end. D3.js, morris.js, crossfilter.js, and Bootstrap framework were used at front-end.&lt;/p&gt;
+
+&lt;p&gt;@Github: &lt;a href=&#34;https://github.com/sleephu/Airline-ontime-performance-Analytics-BigData&#34;&gt;https://github.com/sleephu/Airline-ontime-performance-Analytics-BigData&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>This is the title</title>
-      <link>http://sleephu.github.io/gallery/anotherdrone/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
+      <title>Amazone Same Day Delivery Application</title>
+      <link>http://sleephu.github.io/project/amazon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://sleephu.github.io/gallery/anotherdrone/</guid>
-      <description></description>
+      <guid>http://sleephu.github.io/project/amazon/</guid>
+      <description>&lt;p&gt;● A swing application was developed to provide a solution for same day product delivery on Netbeans in Java.&lt;/p&gt;
+
+&lt;p&gt;● Followed the object oriented design principles and supported features including distributed virtual local suppliers, order processing, billing, invoicing, shipment and return management etc.&lt;/p&gt;
+
+&lt;p&gt;● DB4O is used for data persistence.&lt;/p&gt;
+
+&lt;p&gt;@Github &lt;a href=&#34;https://github.com/sleephu/A-Swing-project--Amazon-Same-Day-Delivery&#34;&gt;https://github.com/sleephu/A-Swing-project--Amazon-Same-Day-Delivery&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>This is the title</title>
-      <link>http://sleephu.github.io/gallery/anotherfood/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
+      <title>Climate Change Big Data Analytic System Development</title>
+      <link>http://sleephu.github.io/project/climate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://sleephu.github.io/gallery/anotherfood/</guid>
-      <description></description>
+      <guid>http://sleephu.github.io/project/climate/</guid>
+      <description>&lt;p&gt;● A big data analytics platform was implemented with Spark and Cassandra (Deployed on Amazon AWS).&lt;/p&gt;
+
+&lt;p&gt;● Analyzed GSOD Climate data from 1921 - 2013, (Raw data size around 21 GB).&lt;/p&gt;
+
+&lt;p&gt;● Parsed data with Python and developed apps in Java for data cleansing and preprocessing, and loaded into Cassandra.&lt;/p&gt;
+
+&lt;p&gt;● Implemented ARIMA algorithms with MATLAB ARIMA tool jar package to build prediction model for future climate.&lt;/p&gt;
+
+&lt;p&gt;● Implemented k-means algorithms on Apache Spark cluster which provides real-time analytics capabilities to build clustering model to find areas with similar climate condition.&lt;/p&gt;
+
+&lt;p&gt;● Built a responsive UI using Spring framework for interactive analysis.&lt;/p&gt;
+
+&lt;p&gt;● Technologies used: Spark, Cassandra, Spring framework were used at back-end, Google Chart and Bootstrap framework were used at front-end.&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>This is the title</title>
-      <link>http://sleephu.github.io/gallery/anotherjars/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
+      <title>E-Commerce Web Platform for Restaurants</title>
+      <link>http://sleephu.github.io/project/e-commerce/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://sleephu.github.io/gallery/anotherjars/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>This is the title</title>
-      <link>http://sleephu.github.io/gallery/anotherphone/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://sleephu.github.io/gallery/anotherphone/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>This is the title</title>
-      <link>http://sleephu.github.io/gallery/car/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://sleephu.github.io/gallery/car/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>This is the title</title>
-      <link>http://sleephu.github.io/gallery/cup/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://sleephu.github.io/gallery/cup/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>This is the title</title>
-      <link>http://sleephu.github.io/gallery/drone/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://sleephu.github.io/gallery/drone/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>This is the title</title>
-      <link>http://sleephu.github.io/gallery/food/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://sleephu.github.io/gallery/food/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>This is the title</title>
-      <link>http://sleephu.github.io/gallery/jars/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://sleephu.github.io/gallery/jars/</guid>
-      <description></description>
+      <guid>http://sleephu.github.io/project/e-commerce/</guid>
+      <description>&lt;p&gt;● A C2C web application was developed for restaurants in Java in Eclipse.&lt;/p&gt;
+
+&lt;p&gt;● The features include registration, login, restaurants search feature, menu viewing, order processing and reservation etc.&lt;/p&gt;
+
+&lt;p&gt;● Designed and implemented data model in MySQL, and used hibernate as ORM for persistence.&lt;/p&gt;
+
+&lt;p&gt;● Technologies used: Spring MVC framework, Hibernate, and Spring Security were used. jQuery, and Bootstrap framework were used on the client side&lt;/p&gt;
+
+&lt;p&gt;@Github: &lt;a href=&#34;https://github.com/sleephu/spring-MVC-project&#34;&gt;https://github.com/sleephu/spring-MVC-project&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
   </channel>

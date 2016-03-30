@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Grid Side</title>
-    <link>http://sleephu.github.io/post/</link>
-    <description>Recent content in Posts on Grid Side</description>
+    <title>Info on Grid Side</title>
+    <link>http://sleephu.github.io/tags/info/</link>
+    <description>Recent content in Info on Grid Side</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;#169; by Jackie Hu</copyright>
     <lastBuildDate>Tue, 29 Mar 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://sleephu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://sleephu.github.io/tags/info/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Info</title>
@@ -17,16 +17,6 @@
       
       <guid>http://sleephu.github.io/post/info/</guid>
       <description>&lt;p&gt;Just for fun.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Test</title>
-      <link>http://sleephu.github.io/post/test/</link>
-      <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
-      
-      <guid>http://sleephu.github.io/post/test/</guid>
-      <description>&lt;p&gt;If I can fly.&lt;/p&gt;
 </description>
     </item>
     
