@@ -27,13 +27,12 @@ a diam ullamcorper aliquet at vel ante. Fusce ac lacinia tortor.&lt;/p&gt;
     </item>
     
     <item>
-      <title>Car</title>
-      <link>http://sleephu.github.io/future/car/</link>
+      <title>Simple Life</title>
+      <link>http://sleephu.github.io/future/horse/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://sleephu.github.io/future/car/</guid>
-      <description>&lt;p&gt;Project content would go here. You can also redirect using the front matter
-&lt;code&gt;redirect = &amp;quot;url&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+      <guid>http://sleephu.github.io/future/horse/</guid>
+      <description>&lt;p&gt;Simple life is fine enough.&lt;/p&gt;
 </description>
     </item>
     
