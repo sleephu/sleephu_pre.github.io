@@ -7,8 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;#169; by Jackie Hu</copyright>
-    <lastBuildDate>Mon, 28 Mar 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Mar 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://sleephu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Simple Life</title>
+      <link>http://sleephu.github.io/future/horse/</link>
+      <pubDate>Wed, 30 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://sleephu.github.io/future/horse/</guid>
+      <description>&lt;p&gt;Simple life is fine enough.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Test</title>
@@ -138,15 +148,6 @@ redirect the content to another page.&lt;/p&gt;
       <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
       
       <guid>http://sleephu.github.io/gallery/jars/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>This is the title</title>
-      <link>http://sleephu.github.io/gallery/phone/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://sleephu.github.io/gallery/phone/</guid>
       <description></description>
     </item>
     
