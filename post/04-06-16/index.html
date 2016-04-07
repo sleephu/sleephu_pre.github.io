@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html 
+    lang="en-us"
+    class="no-js"
+>
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="">
+    <meta name="description" content="">
+    
+    <meta name="generator" content="Hugo 0.15" />
+    <meta name="generation-date" content="2016-04-07 13:34:29.942450775 -0700 PDT">
+    <title>SCJP Reading Notes &middot; Jackie Hu Space</title>
+    <link rel="shortcut icon" href="http://sleephu.github.io/img/favicon.ico">
+    <link rel="icon" href="http://sleephu.github.io/img/favicon.ico">
+    
+<link rel="stylesheet" href="http://sleephu.github.io/css/materialize.min.css">
+
+
+<link rel="stylesheet" href="http://sleephu.github.io/css/font-awesome.min.css">
+
+
+    
+    <link rel="stylesheet" href="http://sleephu.github.io/css/styles/railscasts.css">
+
+
+
+<link rel="stylesheet" href="http://sleephu.github.io/css/lightbox.css">
+
+
+<link rel="stylesheet" href="http://sleephu.github.io/css/main.css">
+
+
+    <script src="http://sleephu.github.io/js/modernizr-latest.js"></script>
+    <script src="http://sleephu.github.io/js/lazysizes.min.js"></script>
+    <script src="http://sleephu.github.io/js/ls.noscript.min.js"></script>
+
+    <script>
+        window.lazySizesConfig = window.lazySizesConfig || {};
+        lazySizesConfig.addClasses = true;
+        lazySizesConfig.loadMode = 2;
+    </script>
+
+    
+</head>
+
+
+
+<body class="page-colors minimum-viewport-height">
+    
+
+<nav class="main-menu menu-colors">
+    <ul class="menu menu-colors no-list-float">
+        <li><a href="http://sleephu.github.io/"><i class="fa fa-home fa-2x"></i></a></li>
+        <li>
+            <a href="#!"><i class="fa fa-bars fa-2x"></i></a>
+
+            
+            <ul class="menu flexible-width menu-colors no-list-float">
+                
+                
+                    <li >
+                    
+                        <a href="http://sleephu.github.io//future/">
+                            
+                            <span>Future</span>
+                        </a>
+                    
+                    </li>
+                
+                    <li >
+                    
+                        <a href="http://sleephu.github.io//map/">
+                            
+                            <span>Map</span>
+                        </a>
+                    
+                    </li>
+                
+                    <li >
+                    
+                        <a href="http://sleephu.github.io//model/">
+                            
+                            <span>Model</span>
+                        </a>
+                    
+                    </li>
+                
+                    <li class="active">
+                    
+                        <a href="http://sleephu.github.io//post/">
+                            
+                            <span>Post</span>
+                        </a>
+                    
+                    </li>
+                
+                    <li >
+                    
+                        <a href="http://sleephu.github.io//project/">
+                            
+                            <span>Project</span>
+                        </a>
+                    
+                    </li>
+                
+            </ul>
+        </li>
+        <li><a href="#!" data-lightbox-id="searchbox"><i class="fa fa-search fa-2x"></i></a></li>
+        
+            <li class="blue-grey-text" style="border-top: 1px solid;"></li>
+            
+                <li>
+                    <a href="#!">
+                        <i class="fa fa-twitter fa-2x"></i>
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://www.linkedin.com/in/jingyunhu">
+                        <i class="fa fa-linkedin fa-2x"></i>
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="#!">
+                        <i class="fa fa-google-plus fa-2x"></i>
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://github.com/sleephu?tab=repositories">
+                        <i class="fa fa-github fa-2x"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="blue-grey-text" style="border-top: 1px solid;"></li>
+        <li>
+            <a href="" type="application/rss+xml" target="_blank">
+                <i class="fa fa-rss fa-2x"></i>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<div id="searchbox" class="no-display">
+    <div class="valign-wrapper fill-container">
+        <div class="valign large-form horizontal-center-hack">
+            <form method="get" id="search" action="http://duckduckgo.com/">
+    <input type="hidden" name="sites"value="http://sleephu.github.io/"/>
+    <input type="hidden" name="ka" value="h"/>
+    <input type="hidden" name="k7" value="#fafafa"/>
+    <input type="hidden" name="kj" value="#3f3f3f"/>
+    <input type="hidden" name="ky" value="#fafafa"/>
+    <input type="hidden" name="kx" value="b"/>
+    <input type="hidden" name="kt" value="Helvetica"/>
+    <input type="text" name="q" maxlength="255" placeholder="Search"/>
+    <input type="submit" value="DuckDuckGo Search" style="visibility: hidden;" />
+</form>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    <div class="main-content">
+        <div class="center-space">
+            <div class="article-colors">
+                
+                    <img src="/img/reading.jpg" class="fill-container-width"></img>
+                
+                <article>
+                    <header>
+                        <h1 class="article-title">SCJP Reading Notes</h1>
+                        <time class="date-color">Wed Apr 06, 2016</time>
+                        <span class="separator">|</span>
+                        
+<ul class="categories">
+    <li>
+        <i class="fa fa-book"></i>
+    </li>
+    
+        <li><a href="http://sleephu.github.io/categories/study">Study</a></li>
+    
+</ul>
+
+
+                        <span class="separator">|</span>
+                        
+<ul class="tags">
+    <li>
+        <i class="fa fa-tags"></i>
+    </li>
+    
+        <li><a href="http://sleephu.github.io/tags/java">java</a></li>
+    
+        <li><a href="http://sleephu.github.io/tags/reading-notes">reading notes</a></li>
+    
+</ul>
+
+
+                    </header>
+
+                    <hr>
+
+                    <section>
+                        
+                            <p>Summary
+It is reading notes about the book &ndash; SCJP.</p>
+
+<p>Declaration &amp; Access Modifiers</p>
+
+<ol>
+<li><p>default v.s protected</p>
+
+<p>default: package level access
+ proceted: package + kids (subclass, access through inheritance, but not through a reference to an instance of the superclass)</p></li>
+
+<li><p>final abstract &mdash;- wrong mix, opposite meaning</p>
+
+<p>final: cannot be subclassed;
+ abstract: force to be subclassed</p></li>
+
+<li><p>Reason to use final: security(satefy), java core libraries (String, Thread.isAlive)</p></li>
+
+<li><p>abstract v.s interface</p>
+
+<p>a. All methods in interface is implicitly public and abstract</p>
+
+<p>b. Interface can only define constants(public static final), not instance variables, while in abstract class, it could have instance variables</p>
+
+<p>c. An interface can extend one or more interfaces, abstract could only extend one other abstract class</p>
+
+<p>d. An interface can&rsquo;t extend anything but another interface</p>
+
+<p>e. An interface can&rsquo;t implement another interface/class</p>
+
+<p>f. An interface must be declared with the keyword interface, while it&rsquo;s legal that not declare an abstract class with abstract keyword</p></li>
+
+<li><p>&ldquo;this&rdquo;: refers to currently executing object</p></li>
+
+<li><p>final argument: keep the same value that the parameter had when it was passed into the method</p></li>
+
+<li><p>the first concrete class must implement all abstract methods of the super class</p></li>
+
+<li><p>synchronized: only applies to method; a method can be accessed by only one thread at a time</p></li>
+
+<li><p>static:</p>
+
+<p>a. exist independently of any instance created for the class</p>
+
+<p>b. static members exist before new instance of a class, and there will be only one copy of a static member regardless of the number of instances of that class</p>
+
+<p>c. all instances of a given class share the same value for any given static variable</p></li>
+
+<li><p>constructor:</p>
+
+<p>a. same name as class name</p>
+
+<p>b. no return type</p>
+
+<p>c. cannot be static (since it is associated with object instantiation)</p>
+
+<p>d. cannot be final/abstract (since cannot be overriden)</p></li>
+
+<li><p>enum: a special kind of class, it can be used to restrict a variable to have one of only a few pre-defined values, which is good to reduce bugs.</p>
+
+<p>a. defined in different places(inside or outside a class), different ways to access it.</p>
+
+<p>b. like other class, could have constructor, instance variables, methods, etc.</p>
+
+<p>c. constructor:
+    1) can never invoke enum constructors directly, and the constructor is invoked automatically with arguments you define after the constant value</p>
+
+<pre><code>2) can define more than one arguments to the constructor (can overload)
+</code></pre>
+
+<p>d. has static method: values(), returns array of the enum&rsquo;s values</p>
+
+<p>eg: enum CoffeeSize {
+      //4, 8, 10 are passed to the constructor
+      SMALL(4), BIG(8), HUGE(10);
+      CoffeeSize(int ounces) {</p>
+
+<pre><code>     this.ounces = ounces;
+</code></pre>
+
+<p>}</p>
+
+<pre><code>   private int ounces;
+
+
+   public int getOunces() {
+
+
+      return ounces;
+
+
+   }
+</code></pre>
+
+<p>}
+p.s &ldquo;final&rdquo; is the only modifer could be used to local variables</p></li>
+</ol>
+
+                        
+                    </section>
+
+                    <footer class="right-align">
+                        <p><small>Copyright &#169; by Jackie Hu</small></p>
+                    </footer>
+
+                    
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'jackie_hu';
+        var disqus_identifier = 'http:\/\/sleephu.github.io\/post\/04-06-16\/';
+        var disqus_title = 'SCJP Reading Notes';
+        var disqus_url = 'http:\/\/sleephu.github.io\/post\/04-06-16\/';
+        (function() {
+            
+            if (window.location.hostname === "localhost") {
+                return;
+            }
+
+            var dsq = document.createElement('script'); 
+            dsq.type = 'text/javascript'; 
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            (document.getElementsByTagName('head')[0] || 
+                document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+                </article>
+            </div>
+        </div>
+    </div>
+
+    
+<script src="http://sleephu.github.io/js/jquery-2.1.4.min.js"></script>
+
+
+<script src="http://sleephu.github.io/js/materialize.min.js"></script>
+
+
+<script src="http://sleephu.github.io/js/imagesloaded.pkgd.min.js"></script>
+
+
+<script src="http://sleephu.github.io/js/masonry.pkgd.min.js"></script>
+
+
+    
+    <script src="http://sleephu.github.io/js/highlight.pack.js"></script>
+
+
+
+<script src="http://sleephu.github.io/js/lightbox.min.js"></script>
+
+
+<script src="http://sleephu.github.io/js/jquery.infinitescroll.min.js"></script>
+
+
+<script src="http://sleephu.github.io/js/main.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+
+

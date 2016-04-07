@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Study on Jackie Hu Space</title>
+    <link>http://sleephu.github.io/categories/study/</link>
+    <description>Recent content in Study on Jackie Hu Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright &amp;#169; by Jackie Hu</copyright>
+    <lastBuildDate>Wed, 06 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://sleephu.github.io/categories/study/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SCJP Reading Notes</title>
+      <link>http://sleephu.github.io/post/04-06-16/</link>
+      <pubDate>Wed, 06 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://sleephu.github.io/post/04-06-16/</guid>
+      <description>&lt;p&gt;Summary
+It is reading notes about the book &amp;ndash; SCJP.&lt;/p&gt;
+
+&lt;p&gt;Declaration &amp;amp; Access Modifiers&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;default v.s protected&lt;/p&gt;
+
+&lt;p&gt;default: package level access
+ proceted: package + kids (subclass, access through inheritance, but not through a reference to an instance of the superclass)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;final abstract &amp;mdash;- wrong mix, opposite meaning&lt;/p&gt;
+
+&lt;p&gt;final: cannot be subclassed;
+ abstract: force to be subclassed&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Reason to use final: security(satefy), java core libraries (String, Thread.isAlive)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;abstract v.s interface&lt;/p&gt;
+
+&lt;p&gt;a. All methods in interface is implicitly public and abstract&lt;/p&gt;
+
+&lt;p&gt;b. Interface can only define constants(public static final), not instance variables, while in abstract class, it could have instance variables&lt;/p&gt;
+
+&lt;p&gt;c. An interface can extend one or more interfaces, abstract could only extend one other abstract class&lt;/p&gt;
+
+&lt;p&gt;d. An interface can&amp;rsquo;t extend anything but another interface&lt;/p&gt;
+
+&lt;p&gt;e. An interface can&amp;rsquo;t implement another interface/class&lt;/p&gt;
+
+&lt;p&gt;f. An interface must be declared with the keyword interface, while it&amp;rsquo;s legal that not declare an abstract class with abstract keyword&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&amp;ldquo;this&amp;rdquo;: refers to currently executing object&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;final argument: keep the same value that the parameter had when it was passed into the method&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;the first concrete class must implement all abstract methods of the super class&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;synchronized: only applies to method; a method can be accessed by only one thread at a time&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;static:&lt;/p&gt;
+
+&lt;p&gt;a. exist independently of any instance created for the class&lt;/p&gt;
+
+&lt;p&gt;b. static members exist before new instance of a class, and there will be only one copy of a static member regardless of the number of instances of that class&lt;/p&gt;
+
+&lt;p&gt;c. all instances of a given class share the same value for any given static variable&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;constructor:&lt;/p&gt;
+
+&lt;p&gt;a. same name as class name&lt;/p&gt;
+
+&lt;p&gt;b. no return type&lt;/p&gt;
+
+&lt;p&gt;c. cannot be static (since it is associated with object instantiation)&lt;/p&gt;
+
+&lt;p&gt;d. cannot be final/abstract (since cannot be overriden)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;enum: a special kind of class, it can be used to restrict a variable to have one of only a few pre-defined values, which is good to reduce bugs.&lt;/p&gt;
+
+&lt;p&gt;a. defined in different places(inside or outside a class), different ways to access it.&lt;/p&gt;
+
+&lt;p&gt;b. like other class, could have constructor, instance variables, methods, etc.&lt;/p&gt;
+
+&lt;p&gt;c. constructor:
+    1) can never invoke enum constructors directly, and the constructor is invoked automatically with arguments you define after the constant value&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2) can define more than one arguments to the constructor (can overload)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;d. has static method: values(), returns array of the enum&amp;rsquo;s values&lt;/p&gt;
+
+&lt;p&gt;eg: enum CoffeeSize {
+      //4, 8, 10 are passed to the constructor
+      SMALL(4), BIG(8), HUGE(10);
+      CoffeeSize(int ounces) {&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;     this.ounces = ounces;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;   private int ounces;
+
+
+   public int getOunces() {
+
+
+      return ounces;
+
+
+   }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}
+p.s &amp;ldquo;final&amp;rdquo; is the only modifer could be used to local variables&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
