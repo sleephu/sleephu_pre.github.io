@@ -96,20 +96,28 @@ It is reading notes about the book &amp;ndash; SCJP.&lt;/p&gt;
 
 &lt;p&gt;b. like other class, could have constructor, instance variables, methods, etc.&lt;/p&gt;
 
-&lt;p&gt;c. constructor:
-    1) can never invoke enum constructors directly, and the constructor is invoked automatically with arguments you define after the constant value&lt;/p&gt;
+&lt;p&gt;c. constructor:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;2) can define more than one arguments to the constructor (can overload)
+&lt;pre&gt;&lt;code&gt;1) can never invoke enum constructors directly, and the constructor is invoked automatically with arguments you define after the constant value
+
+
+2) can define more than one arguments to the constructor (can overload)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;d. has static method: values(), returns array of the enum&amp;rsquo;s values&lt;/p&gt;
 
-&lt;p&gt;eg: enum CoffeeSize {
-      //4, 8, 10 are passed to the constructor
-      SMALL(4), BIG(8), HUGE(10);
-      CoffeeSize(int ounces) {&lt;/p&gt;
+&lt;p&gt;eg: enum CoffeeSize {&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;     this.ounces = ounces;
+&lt;pre&gt;&lt;code&gt;  //4, 8, 10 are passed to the constructor
+
+
+  SMALL(4), BIG(8), HUGE(10);
+
+
+  CoffeeSize(int ounces) {
+
+
+     this.ounces = ounces;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;}&lt;/p&gt;
