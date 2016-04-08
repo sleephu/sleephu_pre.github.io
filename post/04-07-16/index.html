@@ -14,8 +14,8 @@
     <meta name="description" content="">
     
     <meta name="generator" content="Hugo 0.15" />
-    <meta name="generation-date" content="2016-04-08 12:27:36.145654748 -0700 PDT">
-    <title>US &middot; Jackie Hu Space</title>
+    <meta name="generation-date" content="2016-04-08 12:27:36.143880139 -0700 PDT">
+    <title>SCJP Reading Notes - 2 &middot; Jackie Hu Space</title>
     <link rel="shortcut icon" href="http://sleephu.github.io/img/favicon.ico">
     <link rel="icon" href="http://sleephu.github.io/img/favicon.ico">
     
@@ -73,7 +73,7 @@
                     
                     </li>
                 
-                    <li class="active">
+                    <li >
                     
                         <a href="http://sleephu.github.io//map/">
                             
@@ -91,7 +91,7 @@
                     
                     </li>
                 
-                    <li >
+                    <li class="active">
                     
                         <a href="http://sleephu.github.io//post/">
                             
@@ -177,18 +177,20 @@
         <div class="center-space">
             <div class="article-colors">
                 
-                    <img src="/img/map.png" class="fill-container-width"></img>
+                    <img src="/img/reading.jpg" class="fill-container-width"></img>
                 
                 <article>
                     <header>
-                        <h1 class="article-title">US</h1>
-                        <time class="date-color">Wed Mar 30, 2016</time>
+                        <h1 class="article-title">SCJP Reading Notes - 2</h1>
+                        <time class="date-color">Thu Apr 07, 2016</time>
                         <span class="separator">|</span>
                         
 <ul class="categories">
     <li>
         <i class="fa fa-book"></i>
     </li>
+    
+        <li><a href="http://sleephu.github.io/categories/study">Study</a></li>
     
 </ul>
 
@@ -200,6 +202,10 @@
         <i class="fa fa-tags"></i>
     </li>
     
+        <li><a href="http://sleephu.github.io/tags/java">java</a></li>
+    
+        <li><a href="http://sleephu.github.io/tags/reading-notes">reading notes</a></li>
+    
 </ul>
 
 
@@ -209,7 +215,142 @@
 
                     <section>
                         
-                            
+                            <p>Summary
+It is reading notes about the book &ndash; SCJP.</p>
+
+<p>Object Oriented</p>
+
+<ol>
+<li><p>Key Characteristics</p>
+
+<p>a. Encapsulation: associate with hiding implementation details, the ability to make changes in your implementation without breaking the code of others who use your code</p>
+
+<p>b. Inheritance: used to promote code reuse; use polymophism (many forms)</p>
+
+<pre><code>i. IS-A: extends/implements
+ii. HAS-A: based on usage, not inheritance
+</code></pre>
+
+<p>c. Polymorphism: many forms (see eg. as follows)</p>
+
+<pre><code>class Dog extend Animal implements Animatable {}
+Dog is:
+     i. An Object
+     ii. An Animal
+     iii. A Dog
+     iv. An Animatable
+</code></pre></li>
+
+<li><p>Overriding v.s Overloading</p>
+
+<p>a. Overriding: if A extends B, A has the opportunity to override method in B (except final); Overloading: name reuse</p>
+
+<p>b. Overriding cannot change argument list; Overloading must change argument</p>
+
+<p>c. The overriding method can throw any unchecked (runtime) exception, regardless of whether the overriden method declare the exception, but can only throw fewer or narrower exceptions; the overloading can declare new or broader checked exceptions</p>
+
+<p>d. The return type must be the same as or a subtype of the return type declared in the original overriden superclass, while overloading method can change the return type</p>
+
+<p>e. The overriding method cannot have more restrict access modifier than original overriden method in superclass, while overloading method could have any access modifier</p>
+
+<p>f. The reference type (not the object type) determines which overloaded method is invoked, while the object type determines which overriden method is invoked!!!(important)</p>
+
+<p>eg:
+     Overloading:</p>
+
+<pre><code> class Animal {}
+ class Horse extends Animal {}
+ class UseAnimal {
+     public void doStuff(Animal a) {
+        System.out.println(&quot;Animal Version&quot;);
+     }
+     public void doStuff() {
+        System.out.println(&quot;Horse Version&quot;);
+ }
+   } 
+ UseAnimal ua = new UseAnimal();
+ Animal a = new Horse();
+ ua.doStuff(a); // output is &quot;Animal Version&quot;
+ ---------------------------------------------------------
+ Overriding:
+ suppose eat() in Animal prints out &quot;Animal eat&quot;, in Horse prints out &quot;Horse eat&quot;
+ Animal a = new Horse();
+ System.out.println(a.eat()); //output: &quot;Horse eat&quot;
+</code></pre>
+
+<p>Explian: compiler checks the reference type which is Animal, but it&rsquo;s JVM which looks for the object type decides which version to be invoked</p></li>
+
+<li><p>Casting
+ a. downcast: casting down the inheritance tree to a more specific class</p>
+
+<pre><code>if (animal instanceof Dog) {
+   Dog d = (Dog)animal;
+   d.playDead();
+   }
+</code></pre>
+
+<p>b. upcast: works implicitly</p>
+
+<pre><code>Dog d = new Dog();
+Animal a1 = d; //upcast ok with no explicit cast
+Animal a2 = (Animal)d; //upcast ok with an explicit cast
+</code></pre></li>
+
+<li><p>Interface</p>
+
+<p>abstract class can choose to implement any, all, or none of methods from any of the interface</p></li>
+
+<li><p>Constructor:</p>
+
+<p>a. Every class has constructor (abstract class&rsquo;s constructor is invoked when its concrete subclass is instantiated)</p>
+
+<p>b. no return type</p>
+
+<p>c. first statement must be super(); or this(); (if none was there, compiler insert super() call)</p>
+
+<p>d. if not type constructor, compiler generate a no-argu constructor automatically</p>
+
+<p>e. constructor name must match the class, and it&rsquo;s legal to have method with same name as class name</p>
+
+<p>f. interface cannot have constructors, since they are not part of inheritance tree</p>
+
+<p>g. constructors are never inherited.(the type of constructor in super class can never determines the default constructor you get, and the default constructor is ALWAYS no-argu constructor)</p>
+
+<p>h. can overload constructor, and it&rsquo;s used to provide alternate ways for clients to instaitate objects of your class. (p.s not always make sense, eg. java.awt.Color: you have to provide color info in constructor)</p>
+
+<p>i. constructor could have any access modifier, including private(only code with the class itself can instantiate an object of that type, if the private constructor class wants to allow an instance of the class to be used, the class must provide static method or variable that allow access to an instance created from within the class)</p></li>
+
+<li><p>Static</p>
+
+<p>a. static = class; nonstatic = instance</p>
+
+<p>b. cannot access a nonstatic(instance) member(variables/methods) from static method</p>
+
+<pre><code>  class Animal {
+   static void doStuff() {
+       System.out.println(&quot;a&quot;);
+      }
+    }
+  class Dog extends Animal {
+ static void doStuff() {
+     System.out.println(&quot;d&quot;);
+     }  
+   }
+  public static void main(String[] args) {
+     Animal[] a = {new Animal(), new Dog(), new Animal};
+     for (int x = 0; x &lt; a.length; x++) {
+     a[x].doStuff(); // output: a a a
+    }
+ }
+</code></pre></li>
+
+<li><p>Coupling v.s Cohesion</p>
+
+<p>a. Coupling: the degree to which one class knows about another class</p>
+
+<p>b. Cohesion: the degree to which a class has a single, well-defined row or reponsibility</p></li>
+</ol>
+
                         
                     </section>
 
@@ -221,9 +362,9 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'jackie_hu';
-        var disqus_identifier = 'http:\/\/sleephu.github.io\/map\/jouneral\/';
-        var disqus_title = 'US';
-        var disqus_url = 'http:\/\/sleephu.github.io\/map\/jouneral\/';
+        var disqus_identifier = 'http:\/\/sleephu.github.io\/post\/04-07-16\/';
+        var disqus_title = 'SCJP Reading Notes - 2';
+        var disqus_url = 'http:\/\/sleephu.github.io\/post\/04-07-16\/';
         (function() {
             
             if (window.location.hostname === "localhost") {

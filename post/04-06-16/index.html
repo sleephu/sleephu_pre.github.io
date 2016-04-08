@@ -14,8 +14,8 @@
     <meta name="description" content="">
     
     <meta name="generator" content="Hugo 0.15" />
-    <meta name="generation-date" content="2016-04-07 13:41:08.28869185 -0700 PDT">
-    <title>SCJP Reading Notes &middot; Jackie Hu Space</title>
+    <meta name="generation-date" content="2016-04-08 12:27:36.142972665 -0700 PDT">
+    <title>SCJP Reading Notes - 1 &middot; Jackie Hu Space</title>
     <link rel="shortcut icon" href="http://sleephu.github.io/img/favicon.ico">
     <link rel="icon" href="http://sleephu.github.io/img/favicon.ico">
     
@@ -181,7 +181,7 @@
                 
                 <article>
                     <header>
-                        <h1 class="article-title">SCJP Reading Notes</h1>
+                        <h1 class="article-title">SCJP Reading Notes - 1</h1>
                         <time class="date-color">Wed Apr 06, 2016</time>
                         <span class="separator">|</span>
                         
@@ -281,45 +281,31 @@ It is reading notes about the book &ndash; SCJP.</p>
 
 <p>c. constructor:</p>
 
-<pre><code>1) can never invoke enum constructors directly, and the constructor is invoked automatically with arguments you define after the constant value
-
-
-2) can define more than one arguments to the constructor (can overload)
+<pre><code>I. can never invoke enum constructors directly, and the constructor is invoked automatically with arguments you define after the constant value
+II. can define more than one arguments to the constructor (can overload)
 </code></pre>
 
 <p>d. has static method: values(), returns array of the enum&rsquo;s values</p>
 
-<p>eg: enum CoffeeSize {</p>
+<p>eg:</p>
 
-<pre><code>  //4, 8, 10 are passed to the constructor
-
-
-  SMALL(4), BIG(8), HUGE(10);
+<pre><code> enum CoffeeSize {
 
 
-  CoffeeSize(int ounces) {
-
-
+   //4, 8, 10 are passed to the constructor
+   SMALL(4), BIG(8), HUGE(10);
+   CoffeeSize(int ounces) {
      this.ounces = ounces;
-</code></pre>
-
-<p>}</p>
-
-<pre><code>   private int ounces;
-
-
-   public int getOunces() {
-
-
-      return ounces;
-
-
-   }
-</code></pre>
-
-<p>}
-p.s &ldquo;final&rdquo; is the only modifer could be used to local variables</p></li>
+    }
+    private int ounces;
+    public int getOunces() {
+       return ounces;
+         } 
+  } 
+</code></pre></li>
 </ol>
+
+<p>p.s &ldquo;final&rdquo; is the only modifer could be used to local variables</p>
 
                         
                     </section>
@@ -333,7 +319,7 @@ p.s &ldquo;final&rdquo; is the only modifer could be used to local variables</p>
     <script type="text/javascript">
         var disqus_shortname = 'jackie_hu';
         var disqus_identifier = 'http:\/\/sleephu.github.io\/post\/04-06-16\/';
-        var disqus_title = 'SCJP Reading Notes';
+        var disqus_title = 'SCJP Reading Notes - 1';
         var disqus_url = 'http:\/\/sleephu.github.io\/post\/04-06-16\/';
         (function() {
             

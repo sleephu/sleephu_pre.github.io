@@ -7,8 +7,152 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;#169; by Jackie Hu</copyright>
-    <lastBuildDate>Wed, 06 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Apr 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://sleephu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SCJP Reading Notes - 2</title>
+      <link>http://sleephu.github.io/post/04-07-16/</link>
+      <pubDate>Thu, 07 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://sleephu.github.io/post/04-07-16/</guid>
+      <description>&lt;p&gt;Summary
+It is reading notes about the book &amp;ndash; SCJP.&lt;/p&gt;
+
+&lt;p&gt;Object Oriented&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Key Characteristics&lt;/p&gt;
+
+&lt;p&gt;a. Encapsulation: associate with hiding implementation details, the ability to make changes in your implementation without breaking the code of others who use your code&lt;/p&gt;
+
+&lt;p&gt;b. Inheritance: used to promote code reuse; use polymophism (many forms)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;i. IS-A: extends/implements
+ii. HAS-A: based on usage, not inheritance
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;c. Polymorphism: many forms (see eg. as follows)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Dog extend Animal implements Animatable {}
+Dog is:
+     i. An Object
+     ii. An Animal
+     iii. A Dog
+     iv. An Animatable
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Overriding v.s Overloading&lt;/p&gt;
+
+&lt;p&gt;a. Overriding: if A extends B, A has the opportunity to override method in B (except final); Overloading: name reuse&lt;/p&gt;
+
+&lt;p&gt;b. Overriding cannot change argument list; Overloading must change argument&lt;/p&gt;
+
+&lt;p&gt;c. The overriding method can throw any unchecked (runtime) exception, regardless of whether the overriden method declare the exception, but can only throw fewer or narrower exceptions; the overloading can declare new or broader checked exceptions&lt;/p&gt;
+
+&lt;p&gt;d. The return type must be the same as or a subtype of the return type declared in the original overriden superclass, while overloading method can change the return type&lt;/p&gt;
+
+&lt;p&gt;e. The overriding method cannot have more restrict access modifier than original overriden method in superclass, while overloading method could have any access modifier&lt;/p&gt;
+
+&lt;p&gt;f. The reference type (not the object type) determines which overloaded method is invoked, while the object type determines which overriden method is invoked!!!(important)&lt;/p&gt;
+
+&lt;p&gt;eg:
+     Overloading:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; class Animal {}
+ class Horse extends Animal {}
+ class UseAnimal {
+     public void doStuff(Animal a) {
+        System.out.println(&amp;quot;Animal Version&amp;quot;);
+     }
+     public void doStuff() {
+        System.out.println(&amp;quot;Horse Version&amp;quot;);
+ }
+   } 
+ UseAnimal ua = new UseAnimal();
+ Animal a = new Horse();
+ ua.doStuff(a); // output is &amp;quot;Animal Version&amp;quot;
+ ---------------------------------------------------------
+ Overriding:
+ suppose eat() in Animal prints out &amp;quot;Animal eat&amp;quot;, in Horse prints out &amp;quot;Horse eat&amp;quot;
+ Animal a = new Horse();
+ System.out.println(a.eat()); //output: &amp;quot;Horse eat&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Explian: compiler checks the reference type which is Animal, but it&amp;rsquo;s JVM which looks for the object type decides which version to be invoked&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Casting
+ a. downcast: casting down the inheritance tree to a more specific class&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;if (animal instanceof Dog) {
+   Dog d = (Dog)animal;
+   d.playDead();
+   }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;b. upcast: works implicitly&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Dog d = new Dog();
+Animal a1 = d; //upcast ok with no explicit cast
+Animal a2 = (Animal)d; //upcast ok with an explicit cast
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Interface&lt;/p&gt;
+
+&lt;p&gt;abstract class can choose to implement any, all, or none of methods from any of the interface&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Constructor:&lt;/p&gt;
+
+&lt;p&gt;a. Every class has constructor (abstract class&amp;rsquo;s constructor is invoked when its concrete subclass is instantiated)&lt;/p&gt;
+
+&lt;p&gt;b. no return type&lt;/p&gt;
+
+&lt;p&gt;c. first statement must be super(); or this(); (if none was there, compiler insert super() call)&lt;/p&gt;
+
+&lt;p&gt;d. if not type constructor, compiler generate a no-argu constructor automatically&lt;/p&gt;
+
+&lt;p&gt;e. constructor name must match the class, and it&amp;rsquo;s legal to have method with same name as class name&lt;/p&gt;
+
+&lt;p&gt;f. interface cannot have constructors, since they are not part of inheritance tree&lt;/p&gt;
+
+&lt;p&gt;g. constructors are never inherited.(the type of constructor in super class can never determines the default constructor you get, and the default constructor is ALWAYS no-argu constructor)&lt;/p&gt;
+
+&lt;p&gt;h. can overload constructor, and it&amp;rsquo;s used to provide alternate ways for clients to instaitate objects of your class. (p.s not always make sense, eg. java.awt.Color: you have to provide color info in constructor)&lt;/p&gt;
+
+&lt;p&gt;i. constructor could have any access modifier, including private(only code with the class itself can instantiate an object of that type, if the private constructor class wants to allow an instance of the class to be used, the class must provide static method or variable that allow access to an instance created from within the class)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Static&lt;/p&gt;
+
+&lt;p&gt;a. static = class; nonstatic = instance&lt;/p&gt;
+
+&lt;p&gt;b. cannot access a nonstatic(instance) member(variables/methods) from static method&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  class Animal {
+   static void doStuff() {
+       System.out.println(&amp;quot;a&amp;quot;);
+      }
+    }
+  class Dog extends Animal {
+ static void doStuff() {
+     System.out.println(&amp;quot;d&amp;quot;);
+     }  
+   }
+  public static void main(String[] args) {
+     Animal[] a = {new Animal(), new Dog(), new Animal};
+     for (int x = 0; x &amp;lt; a.length; x++) {
+     a[x].doStuff(); // output: a a a
+    }
+ }
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Coupling v.s Cohesion&lt;/p&gt;
+
+&lt;p&gt;a. Coupling: the degree to which one class knows about another class&lt;/p&gt;
+
+&lt;p&gt;b. Cohesion: the degree to which a class has a single, well-defined row or reponsibility&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>Plan for 2016</title>
@@ -27,7 +171,7 @@
     </item>
     
     <item>
-      <title>SCJP Reading Notes</title>
+      <title>SCJP Reading Notes - 1</title>
       <link>http://sleephu.github.io/post/04-06-16/</link>
       <pubDate>Wed, 06 Apr 2016 00:00:00 +0000</pubDate>
       
@@ -98,45 +242,31 @@ It is reading notes about the book &amp;ndash; SCJP.&lt;/p&gt;
 
 &lt;p&gt;c. constructor:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;1) can never invoke enum constructors directly, and the constructor is invoked automatically with arguments you define after the constant value
-
-
-2) can define more than one arguments to the constructor (can overload)
+&lt;pre&gt;&lt;code&gt;I. can never invoke enum constructors directly, and the constructor is invoked automatically with arguments you define after the constant value
+II. can define more than one arguments to the constructor (can overload)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;d. has static method: values(), returns array of the enum&amp;rsquo;s values&lt;/p&gt;
 
-&lt;p&gt;eg: enum CoffeeSize {&lt;/p&gt;
+&lt;p&gt;eg:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;  //4, 8, 10 are passed to the constructor
-
-
-  SMALL(4), BIG(8), HUGE(10);
+&lt;pre&gt;&lt;code&gt; enum CoffeeSize {
 
 
-  CoffeeSize(int ounces) {
-
-
+   //4, 8, 10 are passed to the constructor
+   SMALL(4), BIG(8), HUGE(10);
+   CoffeeSize(int ounces) {
      this.ounces = ounces;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;}&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;   private int ounces;
-
-
-   public int getOunces() {
-
-
-      return ounces;
-
-
-   }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;}
-p.s &amp;ldquo;final&amp;rdquo; is the only modifer could be used to local variables&lt;/p&gt;&lt;/li&gt;
+    }
+    private int ounces;
+    public int getOunces() {
+       return ounces;
+         } 
+  } 
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;p.s &amp;ldquo;final&amp;rdquo; is the only modifer could be used to local variables&lt;/p&gt;
 </description>
     </item>
     
@@ -182,11 +312,11 @@ p.s &amp;ldquo;final&amp;rdquo; is the only modifer could be used to local varia
     </item>
     
     <item>
-      <title>This is the title</title>
-      <link>http://sleephu.github.io/model/food/</link>
-      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
+      <title>Ship</title>
+      <link>http://sleephu.github.io/model/ship/</link>
+      <pubDate>Tue, 09 Mar 1999 00:00:00 +0000</pubDate>
       
-      <guid>http://sleephu.github.io/model/food/</guid>
+      <guid>http://sleephu.github.io/model/ship/</guid>
       <description></description>
     </item>
     
