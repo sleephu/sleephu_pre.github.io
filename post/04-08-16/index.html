@@ -14,8 +14,8 @@
     <meta name="description" content="">
     
     <meta name="generator" content="Hugo 0.15" />
-    <meta name="generation-date" content="2016-04-08 15:36:34.857705342 -0700 PDT">
-    <title>Info &middot; Jackie Hu Space</title>
+    <meta name="generation-date" content="2016-04-08 15:36:34.85561583 -0700 PDT">
+    <title>SCJP Reading Notes - 3 &middot; Jackie Hu Space</title>
     <link rel="shortcut icon" href="http://sleephu.github.io/img/favicon.ico">
     <link rel="icon" href="http://sleephu.github.io/img/favicon.ico">
     
@@ -177,12 +177,12 @@
         <div class="center-space">
             <div class="article-colors">
                 
-                    <img src="/img/info.jpg" class="fill-container-width"></img>
+                    <img src="/img/reading.jpg" class="fill-container-width"></img>
                 
                 <article>
                     <header>
-                        <h1 class="article-title">Info</h1>
-                        <time class="date-color">Tue Mar 29, 2016</time>
+                        <h1 class="article-title">SCJP Reading Notes - 3</h1>
+                        <time class="date-color">Fri Apr 08, 2016</time>
                         <span class="separator">|</span>
                         
 <ul class="categories">
@@ -190,7 +190,7 @@
         <i class="fa fa-book"></i>
     </li>
     
-        <li><a href="http://sleephu.github.io/categories/info">info</a></li>
+        <li><a href="http://sleephu.github.io/categories/study">Study</a></li>
     
 </ul>
 
@@ -202,7 +202,9 @@
         <i class="fa fa-tags"></i>
     </li>
     
-        <li><a href="http://sleephu.github.io/tags/info">info</a></li>
+        <li><a href="http://sleephu.github.io/tags/java">java</a></li>
+    
+        <li><a href="http://sleephu.github.io/tags/reading-notes">reading notes</a></li>
     
 </ul>
 
@@ -213,7 +215,159 @@
 
                     <section>
                         
-                            <p>Just for fun.</p>
+                            <p>Summary
+It is reading notes about the book &ndash; SCJP.</p>
+
+<p>Assignments</p>
+
+<ol>
+<li><p>Stack v.s Heap</p>
+
+<p>Stack: Local variable(method variable/automatic) lives</p>
+
+<p>Heap: Objects and instance variable live</p></li>
+
+<li><p>Primitive Casting</p>
+
+<p>a. narrowing (put a larger thing (like long) into a smaller containers (like short)) requires explicit cast</p>
+
+<p>b. eg:</p>
+
+<pre><code>implicit cast:
+int a = 100;
+long b = a; // an int value always fits in a long
+eplicit cast:
+float a = 100.001f;
+int b = (int)a; //the float could lose info
+</code></pre></li>
+
+<li><p>Arrays</p>
+
+<p>a. array elements are always given default values regardless of where the array itself declared or instantiated</p>
+
+<p>b. JVM only needs to know the size of array (the following eg is legal)</p>
+
+<pre><code>int[][] array = new int[3][];
+</code></pre>
+
+<p>c. primitive array can accept any value that can be promoted implicitly to the declared type of the array.</p>
+
+<pre><code>eg:
+int[] wl = new int[3];
+byte b = 4;
+char c = 'c';
+short s = 7;
+wl[0] = b; //ok, byte is smaller than int
+wl[1] = c; //ok, char is smaller
+wl[2] = s; //ok, short is smaller
+</code></pre>
+
+<p>d. Arrays of object reference</p>
+
+<pre><code> i. array element could be subclass of declared type
+ ii. if array is declared as an interface, array element could refer to any instance of class that implements the declared interface
+</code></pre></li>
+
+<li><p>Java is passing by value (a copy of the bits representing the reference)</p></li>
+
+<li><p>Wrapper class</p>
+
+<p>a. corelates to primitives</p>
+
+<p>b. two fuctionalities</p>
+
+<pre><code>  i. primitives can be handled like objects
+  ii. provide unitility methods for primitives(usually conversions)
+</code></pre>
+
+<p>c. Wrapper objects are immutable</p>
+
+<p>d. All wrapper class(except Character) provides 2 constructors:</p>
+
+<pre><code>  i. primitive of the type being constructed
+  ii. String representation of the type being constructed
+  eg:
+  Integer i1 = new Integer(2);
+  Integer i2 = new Integer(&quot;2&quot;);
+
+
+Exception: Character, only provides 1 constructor, which takes char argument
+</code></pre></li>
+
+<li><p>Overloading tricks</p>
+
+<p>when an exact method isn&rsquo;t found, what method JVM looks for?</p>
+
+<pre><code> a.widening (method with smallest arguement that is wider than the parameter)
+ b. autoboxing (int, autoboxing to Integer)
+ c. var-args (int, int ...x)
+</code></pre>
+
+<p>eg:</p>
+
+<pre><code> widening v.s autoboxing
+ class AddBoxing {
+ static void go(Integer x) {System.out.println(&quot;Integer&quot;);}
+     static void go(long x) {System.out.println(&quot;long&quot;);}
+     public static void main(String[] args) {
+         int i = 5;
+         go(i); //output: long---&gt; widening wins
+}
+   }    
+ autoboxing v.s var-args
+  class AddVarargs {
+      static void go(Byte x) {
+        System.out.println(&quot;Byte&quot;);
+     }
+     static void go(byte ...x) {
+        System.out.println(&quot;byte&quot;);
+ }
+     public static void main(String[] args) {
+        byte b = 3;
+        go(b);// output: Byte --&gt; autoboxing wins
+ }
+   }
+</code></pre>
+
+<p>d. none of wrapper classes will widen from one to another</p></li>
+
+<li><p>Garbage Collection(GC)</p>
+
+<p>a. Java manages memory automatically</p>
+
+<p>b. heap is part of memory where Java obj lives, and it&rsquo;s the only part involved in garbage collection process.</p>
+
+<p>c. JVM decides when GC run (typically when sense memory running low)</p>
+
+<p>d. how GC work: mark and sweep algorithm</p>
+
+<p>e. when an object is eligible for GC: when no live thread can access it</p>
+
+<p>f. GC cannot guarantee enough memory: if maintain too many live objects &ndash;&gt; out of memory</p>
+
+<p>g. writing code that explicitly make object eligible for collection:</p>
+
+<pre><code> i. nulling a reference
+ ii. reassign a reference variable
+ iii. isolate a reference (two instance of same class reference to each other, so no alive thread can access)
+ iv. force GC (System.gc()) // cannot guarantee 
+    (reason: 1). JVM may not have implemented this routine (the languagespecification allows this routine to do nothing at all; 2). another thread might grab lots of memory right after you run GC))
+</code></pre>
+
+<p>fyi.</p>
+
+<p>The GC routines that Java provides are members of the Runtime class(special class that has a single object(singleton) for each program);</p>
+
+<p>The Runtime object provides a mechamism for communicating directly with Virtual Machine, Runtime.getRuntime() &ndash;&gt; returns Runtime instance (the Singleton)</p>
+
+<p>h. finalize():</p>
+
+<pre><code> i. allows run some code before object deleted (clean up resources)
+ ii. only called once(at most!) by GC
+ iii. not guaranteed to run, don't put important code
+ iv. may result in save an object from deletion 
+</code></pre></li>
+</ol>
 
                         
                     </section>
@@ -226,9 +380,9 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'jackie_hu';
-        var disqus_identifier = 'http:\/\/sleephu.github.io\/post\/info\/';
-        var disqus_title = 'Info';
-        var disqus_url = 'http:\/\/sleephu.github.io\/post\/info\/';
+        var disqus_identifier = 'http:\/\/sleephu.github.io\/post\/04-08-16\/';
+        var disqus_title = 'SCJP Reading Notes - 3';
+        var disqus_url = 'http:\/\/sleephu.github.io\/post\/04-08-16\/';
         (function() {
             
             if (window.location.hostname === "localhost") {

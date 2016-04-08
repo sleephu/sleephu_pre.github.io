@@ -7,8 +7,170 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;#169; by Jackie Hu</copyright>
-    <lastBuildDate>Thu, 07 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 08 Apr 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://sleephu.github.io/tags/reading-notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SCJP Reading Notes - 3</title>
+      <link>http://sleephu.github.io/post/04-08-16/</link>
+      <pubDate>Fri, 08 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://sleephu.github.io/post/04-08-16/</guid>
+      <description>&lt;p&gt;Summary
+It is reading notes about the book &amp;ndash; SCJP.&lt;/p&gt;
+
+&lt;p&gt;Assignments&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Stack v.s Heap&lt;/p&gt;
+
+&lt;p&gt;Stack: Local variable(method variable/automatic) lives&lt;/p&gt;
+
+&lt;p&gt;Heap: Objects and instance variable live&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Primitive Casting&lt;/p&gt;
+
+&lt;p&gt;a. narrowing (put a larger thing (like long) into a smaller containers (like short)) requires explicit cast&lt;/p&gt;
+
+&lt;p&gt;b. eg:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;implicit cast:
+int a = 100;
+long b = a; // an int value always fits in a long
+eplicit cast:
+float a = 100.001f;
+int b = (int)a; //the float could lose info
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Arrays&lt;/p&gt;
+
+&lt;p&gt;a. array elements are always given default values regardless of where the array itself declared or instantiated&lt;/p&gt;
+
+&lt;p&gt;b. JVM only needs to know the size of array (the following eg is legal)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;int[][] array = new int[3][];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;c. primitive array can accept any value that can be promoted implicitly to the declared type of the array.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;eg:
+int[] wl = new int[3];
+byte b = 4;
+char c = &#39;c&#39;;
+short s = 7;
+wl[0] = b; //ok, byte is smaller than int
+wl[1] = c; //ok, char is smaller
+wl[2] = s; //ok, short is smaller
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;d. Arrays of object reference&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; i. array element could be subclass of declared type
+ ii. if array is declared as an interface, array element could refer to any instance of class that implements the declared interface
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Java is passing by value (a copy of the bits representing the reference)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Wrapper class&lt;/p&gt;
+
+&lt;p&gt;a. corelates to primitives&lt;/p&gt;
+
+&lt;p&gt;b. two fuctionalities&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  i. primitives can be handled like objects
+  ii. provide unitility methods for primitives(usually conversions)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;c. Wrapper objects are immutable&lt;/p&gt;
+
+&lt;p&gt;d. All wrapper class(except Character) provides 2 constructors:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  i. primitive of the type being constructed
+  ii. String representation of the type being constructed
+  eg:
+  Integer i1 = new Integer(2);
+  Integer i2 = new Integer(&amp;quot;2&amp;quot;);
+
+
+Exception: Character, only provides 1 constructor, which takes char argument
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Overloading tricks&lt;/p&gt;
+
+&lt;p&gt;when an exact method isn&amp;rsquo;t found, what method JVM looks for?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; a.widening (method with smallest arguement that is wider than the parameter)
+ b. autoboxing (int, autoboxing to Integer)
+ c. var-args (int, int ...x)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;eg:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; widening v.s autoboxing
+ class AddBoxing {
+ static void go(Integer x) {System.out.println(&amp;quot;Integer&amp;quot;);}
+     static void go(long x) {System.out.println(&amp;quot;long&amp;quot;);}
+     public static void main(String[] args) {
+         int i = 5;
+         go(i); //output: long---&amp;gt; widening wins
+}
+   }    
+ autoboxing v.s var-args
+  class AddVarargs {
+      static void go(Byte x) {
+        System.out.println(&amp;quot;Byte&amp;quot;);
+     }
+     static void go(byte ...x) {
+        System.out.println(&amp;quot;byte&amp;quot;);
+ }
+     public static void main(String[] args) {
+        byte b = 3;
+        go(b);// output: Byte --&amp;gt; autoboxing wins
+ }
+   }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;d. none of wrapper classes will widen from one to another&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Garbage Collection(GC)&lt;/p&gt;
+
+&lt;p&gt;a. Java manages memory automatically&lt;/p&gt;
+
+&lt;p&gt;b. heap is part of memory where Java obj lives, and it&amp;rsquo;s the only part involved in garbage collection process.&lt;/p&gt;
+
+&lt;p&gt;c. JVM decides when GC run (typically when sense memory running low)&lt;/p&gt;
+
+&lt;p&gt;d. how GC work: mark and sweep algorithm&lt;/p&gt;
+
+&lt;p&gt;e. when an object is eligible for GC: when no live thread can access it&lt;/p&gt;
+
+&lt;p&gt;f. GC cannot guarantee enough memory: if maintain too many live objects &amp;ndash;&amp;gt; out of memory&lt;/p&gt;
+
+&lt;p&gt;g. writing code that explicitly make object eligible for collection:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; i. nulling a reference
+ ii. reassign a reference variable
+ iii. isolate a reference (two instance of same class reference to each other, so no alive thread can access)
+ iv. force GC (System.gc()) // cannot guarantee 
+    (reason: 1). JVM may not have implemented this routine (the languagespecification allows this routine to do nothing at all; 2). another thread might grab lots of memory right after you run GC))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;fyi.&lt;/p&gt;
+
+&lt;p&gt;The GC routines that Java provides are members of the Runtime class(special class that has a single object(singleton) for each program);&lt;/p&gt;
+
+&lt;p&gt;The Runtime object provides a mechamism for communicating directly with Virtual Machine, Runtime.getRuntime() &amp;ndash;&amp;gt; returns Runtime instance (the Singleton)&lt;/p&gt;
+
+&lt;p&gt;h. finalize():&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; i. allows run some code before object deleted (clean up resources)
+ ii. only called once(at most!) by GC
+ iii. not guaranteed to run, don&#39;t put important code
+ iv. may result in save an object from deletion 
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>SCJP Reading Notes - 2</title>
