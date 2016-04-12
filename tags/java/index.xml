@@ -57,10 +57,11 @@
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Switch case:&lt;/p&gt;
 
-&lt;p&gt;eg:
-          switch(new Integer(4)) {
-          case 4: System.out.println(&amp;ldquo;boxing is ok&amp;rdquo;); // it is legal
-          }&lt;/p&gt;&lt;/li&gt;
+&lt;pre&gt;&lt;code&gt;eg:
+   switch(new Integer(4)) {
+      case 4: System.out.println(&amp;quot;boxing is ok&amp;quot;); // it is legal
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;if break is omitted, the program keeps executing the remaining cases blocks until break found or switch ends&lt;/p&gt;&lt;/li&gt;
 
@@ -115,18 +116,22 @@
 
 &lt;p&gt;d. resist the temptation to write a single catch all exception handler&lt;/p&gt;
 
-&lt;p&gt;eg:
-      try {
-       // some code
-       } catch (Exception e) {
-         e.printStackTrace();
-         }
-   // it defeats design objective, lose valuable information, reduce reliability of program since it&amp;rsquo;s likely an exception will be caught that the handler not know how to handle&lt;/p&gt;
+&lt;p&gt;eg:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;   try {
+   // some code
+   } catch (Exception e) {
+     e.printStackTrace();
+     }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;// it defeats design objective, lose valuable information, reduce reliability of program since it&amp;rsquo;s likely an exception will be caught that the handler not know how to handle&lt;/p&gt;
 
 &lt;p&gt;e. looking available catch clause from top down&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    eg:
-    try{
+&lt;p&gt;eg:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    try{
       ...
     }catch (FileNotFoundException fe) { 
       ... 
@@ -137,9 +142,11 @@
 
 &lt;p&gt;f. Handle or Declare: each method must either handle all checked exceptions(which is excluding Error and RuntimeException) by supplying a catch clause or list&lt;/p&gt;
 
-&lt;p&gt;g. some examples for Error and RuntimeException
-     Error: StackOverflow (OS run out of space to store call stack)
-     RuntimeException: NullpointerException, ArrayOutOfIndex&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;g. some examples for Error and RuntimeException&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; Error: StackOverflow (OS run out of space to store call stack)
+ RuntimeException: NullpointerException, ArrayOutOfIndex
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;String, I/O, Formatting and Parsing&lt;/p&gt;

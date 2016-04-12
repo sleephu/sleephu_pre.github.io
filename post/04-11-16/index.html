@@ -14,7 +14,7 @@
     <meta name="description" content="">
     
     <meta name="generator" content="Hugo 0.15" />
-    <meta name="generation-date" content="2016-04-12 01:11:02.048533289 -0700 PDT">
+    <meta name="generation-date" content="2016-04-12 01:16:40.848804396 -0700 PDT">
     <title>SCJP Reading Notes - 4 &middot; Jackie Hu Space</title>
     <link rel="shortcut icon" href="http://sleephu.github.io/img/favicon.ico">
     <link rel="icon" href="http://sleephu.github.io/img/favicon.ico">
@@ -256,10 +256,11 @@
 <ol>
 <li><p>Switch case:</p>
 
-<p>eg:
-          switch(new Integer(4)) {
-          case 4: System.out.println(&ldquo;boxing is ok&rdquo;); // it is legal
-          }</p></li>
+<pre><code>eg:
+   switch(new Integer(4)) {
+      case 4: System.out.println(&quot;boxing is ok&quot;); // it is legal
+    }
+</code></pre></li>
 
 <li><p>if break is omitted, the program keeps executing the remaining cases blocks until break found or switch ends</p></li>
 
@@ -314,18 +315,22 @@
 
 <p>d. resist the temptation to write a single catch all exception handler</p>
 
-<p>eg:
-      try {
-       // some code
-       } catch (Exception e) {
-         e.printStackTrace();
-         }
-   // it defeats design objective, lose valuable information, reduce reliability of program since it&rsquo;s likely an exception will be caught that the handler not know how to handle</p>
+<p>eg:</p>
+
+<pre><code>   try {
+   // some code
+   } catch (Exception e) {
+     e.printStackTrace();
+     }
+</code></pre>
+
+<p>// it defeats design objective, lose valuable information, reduce reliability of program since it&rsquo;s likely an exception will be caught that the handler not know how to handle</p>
 
 <p>e. looking available catch clause from top down</p>
 
-<pre><code>    eg:
-    try{
+<p>eg:</p>
+
+<pre><code>    try{
       ...
     }catch (FileNotFoundException fe) { 
       ... 
@@ -336,9 +341,11 @@
 
 <p>f. Handle or Declare: each method must either handle all checked exceptions(which is excluding Error and RuntimeException) by supplying a catch clause or list</p>
 
-<p>g. some examples for Error and RuntimeException
-     Error: StackOverflow (OS run out of space to store call stack)
-     RuntimeException: NullpointerException, ArrayOutOfIndex</p></li>
+<p>g. some examples for Error and RuntimeException</p>
+
+<pre><code> Error: StackOverflow (OS run out of space to store call stack)
+ RuntimeException: NullpointerException, ArrayOutOfIndex
+</code></pre></li>
 </ol>
 
 <p>String, I/O, Formatting and Parsing</p>
