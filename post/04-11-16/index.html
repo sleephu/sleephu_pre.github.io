@@ -14,8 +14,8 @@
     <meta name="description" content="">
     
     <meta name="generator" content="Hugo 0.15" />
-    <meta name="generation-date" content="2016-04-12 01:11:02.051354459 -0700 PDT">
-    <title>Info &middot; Jackie Hu Space</title>
+    <meta name="generation-date" content="2016-04-12 01:11:02.048533289 -0700 PDT">
+    <title>SCJP Reading Notes - 4 &middot; Jackie Hu Space</title>
     <link rel="shortcut icon" href="http://sleephu.github.io/img/favicon.ico">
     <link rel="icon" href="http://sleephu.github.io/img/favicon.ico">
     
@@ -177,12 +177,12 @@
         <div class="center-space">
             <div class="article-colors">
                 
-                    <img src="/img/info.jpg" class="fill-container-width"></img>
+                    <img src="/img/reading.jpg" class="fill-container-width"></img>
                 
                 <article>
                     <header>
-                        <h1 class="article-title">Info</h1>
-                        <time class="date-color">Tue Mar 29, 2016</time>
+                        <h1 class="article-title">SCJP Reading Notes - 4</h1>
+                        <time class="date-color">Mon Apr 11, 2016</time>
                         <span class="separator">|</span>
                         
 <ul class="categories">
@@ -190,7 +190,7 @@
         <i class="fa fa-book"></i>
     </li>
     
-        <li><a href="http://sleephu.github.io/categories/info">info</a></li>
+        <li><a href="http://sleephu.github.io/categories/study">Study</a></li>
     
 </ul>
 
@@ -202,7 +202,9 @@
         <i class="fa fa-tags"></i>
     </li>
     
-        <li><a href="http://sleephu.github.io/tags/info">info</a></li>
+        <li><a href="http://sleephu.github.io/tags/java">java</a></li>
+    
+        <li><a href="http://sleephu.github.io/tags/reading-notes">reading notes</a></li>
     
 </ul>
 
@@ -213,7 +215,168 @@
 
                     <section>
                         
-                            <p>Just for fun.</p>
+                            <p>Summary</p>
+
+<p>It is reading notes about the book &ndash; SCJP.</p>
+
+<p>Operators</p>
+
+<ol>
+<li><p>Compound operator: the expression on the right side of = will always evaluated first.</p>
+
+<p>x *= 2 + 5; // x = x * (2 + 5);</p></li>
+
+<li><p>String concatenation:</p>
+
+<pre><code> String a = &quot;String&quot;;
+ int b = 3;
+ int c = 7;
+ System.out.println(a + b + c); // output: String37
+ System.out.println(a + (b + c)); //output: String10
+</code></pre></li>
+
+<li><p>Variables marked final cannot be incremented or decremented</p></li>
+
+<li><p>^ operator(logical XOR): returns true if exactly one operand is true</p></li>
+
+<li><p>Increment &amp; Decrement</p>
+
+<pre><code>  int x = 2; int y = 3;
+  if ((y == x++) | (x &lt; ++y)) {
+     System.out.println(&quot;x=&quot;+x+&quot;, y=&quot;+y);// output: x = 3, y = 4
+  }
+  a. y == x++ --&gt; false: compare y == x first, then x+1 -&gt; x = 3
+  b. x &lt; ++y --&gt; true: ++y first -&gt; y = 4, then compare x &lt; y ? -&gt; 3 &lt; 4 true
+  c. a | b --&gt; print
+</code></pre></li>
+</ol>
+
+<p>Flow Control, Exception &amp; Assertions</p>
+
+<ol>
+<li><p>Switch case:</p>
+
+<p>eg:
+          switch(new Integer(4)) {
+          case 4: System.out.println(&ldquo;boxing is ok&rdquo;); // it is legal
+          }</p></li>
+
+<li><p>if break is omitted, the program keeps executing the remaining cases blocks until break found or switch ends</p></li>
+
+<li><p>default case: use when none of case matched; it doesn&rsquo;t have to come at the end of switch</p></li>
+
+<li><p>for loop</p>
+
+<pre><code>  eg: 
+  a. for (initialization; condition; iteration) {}
+  b. none of the tree sections required 
+  for (;;) {System.out.println(&quot;inside an endless loop&quot;); }
+  c. don't need to increment or set anything, can put in virtually any arbitrary code statements you want to happend with each iteration of the loop
+     int b = 3;
+     for (int a = 1; b != 1; System.out.println(&quot;iterate&quot;)) {
+         b = b - a;
+     }
+      output: iterate
+              iterate
+</code></pre></li>
+
+<li><p>break v.s continue</p>
+
+<p>break: stop execution of the innermost loop, start the next line of code after block</p>
+
+<p>continue: cease current execution, start next iteration of same loop if condition is still met</p></li>
+
+<li><p>Handling Exceptions</p>
+
+<p>a. code</p>
+
+<pre><code>    try {
+     //some code, if put clearnup code here, it's easy to forget and redundent
+    } catch(Exception e) {
+
+
+    } finally {
+      //clean up; release any system resource we allocate in the try clause
+     // code here is always runs even exception not caught/try not run, unless System.exit() issue in try or catch clause
+    }
+    it's legal to omit either the catch clause or the finally clause, but not both
+</code></pre>
+
+<p>b. Ducked exception: method call stack</p>
+
+<p>c. exceptions are always subclass of Java.lang.Exception</p>
+
+<p>two types:</p>
+
+<pre><code>  Unchecked Exceptions: Error(Things that not normarlly happend during program execution (eg. JVM run out of memory)), RuntimeException
+  Checked Exception
+</code></pre>
+
+<p>d. resist the temptation to write a single catch all exception handler</p>
+
+<p>eg:
+      try {
+       // some code
+       } catch (Exception e) {
+         e.printStackTrace();
+         }
+   // it defeats design objective, lose valuable information, reduce reliability of program since it&rsquo;s likely an exception will be caught that the handler not know how to handle</p>
+
+<p>e. looking available catch clause from top down</p>
+
+<pre><code>    eg:
+    try{
+      ...
+    }catch (FileNotFoundException fe) { 
+      ... 
+    }catch (IOException ie) {
+      ...
+    }
+</code></pre>
+
+<p>f. Handle or Declare: each method must either handle all checked exceptions(which is excluding Error and RuntimeException) by supplying a catch clause or list</p>
+
+<p>g. some examples for Error and RuntimeException
+     Error: StackOverflow (OS run out of space to store call stack)
+     RuntimeException: NullpointerException, ArrayOutOfIndex</p></li>
+</ol>
+
+<p>String, I/O, Formatting and Parsing</p>
+
+<ol>
+<li><p>String: immutable &ndash;&gt; once assign a value, the value can never change; use once, remain in memory forever</p>
+
+<pre><code>  eg: 
+  String x = &quot;Java&quot;;
+  x.concat(&quot; Rules!&quot;);
+  System.out.println(x); //output: Java
+</code></pre></li>
+
+<li><p>Specific case analysis</p>
+
+<pre><code>  eg:
+     String s1 = &quot;spring&quot;; //&quot;spring&quot; object referenced by s1
+     String s2 = s1 + &quot; summer&quot;;// &quot; summer&quot; object, lost; spring summer object, referenced by s2
+     s1.contact(&quot;fall &quot;); // &quot;fall &quot; object, lost; &quot;fall spring&quot; object, lost
+     s2.concat(s1); //&quot;spring summer spring&quot; object, lost
+     s1 += &quot; winter&quot;; //&quot;winter&quot; object, lost; &quot;spring winter&quot; object, referenced by s1, at the same time, &quot;spring&quot; object lost reference
+     System.out.println(s1 + &quot;  &quot;+ s2);// output: spring winter spring summer
+</code></pre></li>
+
+<li><p>String disanvertange: occupy large amount of memory, so JVM sets aside a special area of memory(String constant pool). When compiler encounters a string literal, it will check if the string literal in String constant pool or not first, if a match is found, no new objects created</p></li>
+
+<li><p>String v.s StringBuffer/StringBuilder</p>
+
+<p>String: immutable</p>
+
+<p>StringBuffer/StringBuilder: changable, use when you have to make a lot of modifications to Strings of characters; common use: file I/O, handle large block of data, pass it on, and then reuse the same memory to have the next block of data</p></li>
+
+<li><p>StringBuffer v.s StringBuilder</p>
+
+<p>StringBuffer: thread-safe, synchronization</p>
+
+<p>StringBuilder: faster, non-synchronization</p></li>
+</ol>
 
                         
                     </section>
@@ -226,9 +389,9 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'jackie_hu';
-        var disqus_identifier = 'http:\/\/sleephu.github.io\/post\/info\/';
-        var disqus_title = 'Info';
-        var disqus_url = 'http:\/\/sleephu.github.io\/post\/info\/';
+        var disqus_identifier = 'http:\/\/sleephu.github.io\/post\/04-11-16\/';
+        var disqus_title = 'SCJP Reading Notes - 4';
+        var disqus_url = 'http:\/\/sleephu.github.io\/post\/04-11-16\/';
         (function() {
             
             if (window.location.hostname === "localhost") {

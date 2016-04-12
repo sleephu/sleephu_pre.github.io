@@ -7,8 +7,179 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;#169; by Jackie Hu</copyright>
-    <lastBuildDate>Fri, 08 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Apr 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://sleephu.github.io/tags/reading-notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SCJP Reading Notes - 4</title>
+      <link>http://sleephu.github.io/post/04-11-16/</link>
+      <pubDate>Mon, 11 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://sleephu.github.io/post/04-11-16/</guid>
+      <description>&lt;p&gt;Summary&lt;/p&gt;
+
+&lt;p&gt;It is reading notes about the book &amp;ndash; SCJP.&lt;/p&gt;
+
+&lt;p&gt;Operators&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Compound operator: the expression on the right side of = will always evaluated first.&lt;/p&gt;
+
+&lt;p&gt;x *= 2 + 5; // x = x * (2 + 5);&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;String concatenation:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; String a = &amp;quot;String&amp;quot;;
+ int b = 3;
+ int c = 7;
+ System.out.println(a + b + c); // output: String37
+ System.out.println(a + (b + c)); //output: String10
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Variables marked final cannot be incremented or decremented&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;^ operator(logical XOR): returns true if exactly one operand is true&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Increment &amp;amp; Decrement&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  int x = 2; int y = 3;
+  if ((y == x++) | (x &amp;lt; ++y)) {
+     System.out.println(&amp;quot;x=&amp;quot;+x+&amp;quot;, y=&amp;quot;+y);// output: x = 3, y = 4
+  }
+  a. y == x++ --&amp;gt; false: compare y == x first, then x+1 -&amp;gt; x = 3
+  b. x &amp;lt; ++y --&amp;gt; true: ++y first -&amp;gt; y = 4, then compare x &amp;lt; y ? -&amp;gt; 3 &amp;lt; 4 true
+  c. a | b --&amp;gt; print
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Flow Control, Exception &amp;amp; Assertions&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Switch case:&lt;/p&gt;
+
+&lt;p&gt;eg:
+          switch(new Integer(4)) {
+          case 4: System.out.println(&amp;ldquo;boxing is ok&amp;rdquo;); // it is legal
+          }&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;if break is omitted, the program keeps executing the remaining cases blocks until break found or switch ends&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;default case: use when none of case matched; it doesn&amp;rsquo;t have to come at the end of switch&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;for loop&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  eg: 
+  a. for (initialization; condition; iteration) {}
+  b. none of the tree sections required 
+  for (;;) {System.out.println(&amp;quot;inside an endless loop&amp;quot;); }
+  c. don&#39;t need to increment or set anything, can put in virtually any arbitrary code statements you want to happend with each iteration of the loop
+     int b = 3;
+     for (int a = 1; b != 1; System.out.println(&amp;quot;iterate&amp;quot;)) {
+         b = b - a;
+     }
+      output: iterate
+              iterate
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;break v.s continue&lt;/p&gt;
+
+&lt;p&gt;break: stop execution of the innermost loop, start the next line of code after block&lt;/p&gt;
+
+&lt;p&gt;continue: cease current execution, start next iteration of same loop if condition is still met&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Handling Exceptions&lt;/p&gt;
+
+&lt;p&gt;a. code&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    try {
+     //some code, if put clearnup code here, it&#39;s easy to forget and redundent
+    } catch(Exception e) {
+
+
+    } finally {
+      //clean up; release any system resource we allocate in the try clause
+     // code here is always runs even exception not caught/try not run, unless System.exit() issue in try or catch clause
+    }
+    it&#39;s legal to omit either the catch clause or the finally clause, but not both
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;b. Ducked exception: method call stack&lt;/p&gt;
+
+&lt;p&gt;c. exceptions are always subclass of Java.lang.Exception&lt;/p&gt;
+
+&lt;p&gt;two types:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  Unchecked Exceptions: Error(Things that not normarlly happend during program execution (eg. JVM run out of memory)), RuntimeException
+  Checked Exception
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;d. resist the temptation to write a single catch all exception handler&lt;/p&gt;
+
+&lt;p&gt;eg:
+      try {
+       // some code
+       } catch (Exception e) {
+         e.printStackTrace();
+         }
+   // it defeats design objective, lose valuable information, reduce reliability of program since it&amp;rsquo;s likely an exception will be caught that the handler not know how to handle&lt;/p&gt;
+
+&lt;p&gt;e. looking available catch clause from top down&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    eg:
+    try{
+      ...
+    }catch (FileNotFoundException fe) { 
+      ... 
+    }catch (IOException ie) {
+      ...
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;f. Handle or Declare: each method must either handle all checked exceptions(which is excluding Error and RuntimeException) by supplying a catch clause or list&lt;/p&gt;
+
+&lt;p&gt;g. some examples for Error and RuntimeException
+     Error: StackOverflow (OS run out of space to store call stack)
+     RuntimeException: NullpointerException, ArrayOutOfIndex&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;String, I/O, Formatting and Parsing&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;String: immutable &amp;ndash;&amp;gt; once assign a value, the value can never change; use once, remain in memory forever&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  eg: 
+  String x = &amp;quot;Java&amp;quot;;
+  x.concat(&amp;quot; Rules!&amp;quot;);
+  System.out.println(x); //output: Java
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Specific case analysis&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  eg:
+     String s1 = &amp;quot;spring&amp;quot;; //&amp;quot;spring&amp;quot; object referenced by s1
+     String s2 = s1 + &amp;quot; summer&amp;quot;;// &amp;quot; summer&amp;quot; object, lost; spring summer object, referenced by s2
+     s1.contact(&amp;quot;fall &amp;quot;); // &amp;quot;fall &amp;quot; object, lost; &amp;quot;fall spring&amp;quot; object, lost
+     s2.concat(s1); //&amp;quot;spring summer spring&amp;quot; object, lost
+     s1 += &amp;quot; winter&amp;quot;; //&amp;quot;winter&amp;quot; object, lost; &amp;quot;spring winter&amp;quot; object, referenced by s1, at the same time, &amp;quot;spring&amp;quot; object lost reference
+     System.out.println(s1 + &amp;quot;  &amp;quot;+ s2);// output: spring winter spring summer
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;String disanvertange: occupy large amount of memory, so JVM sets aside a special area of memory(String constant pool). When compiler encounters a string literal, it will check if the string literal in String constant pool or not first, if a match is found, no new objects created&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;String v.s StringBuffer/StringBuilder&lt;/p&gt;
+
+&lt;p&gt;String: immutable&lt;/p&gt;
+
+&lt;p&gt;StringBuffer/StringBuilder: changable, use when you have to make a lot of modifications to Strings of characters; common use: file I/O, handle large block of data, pass it on, and then reuse the same memory to have the next block of data&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;StringBuffer v.s StringBuilder&lt;/p&gt;
+
+&lt;p&gt;StringBuffer: thread-safe, synchronization&lt;/p&gt;
+
+&lt;p&gt;StringBuilder: faster, non-synchronization&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>SCJP Reading Notes - 3</title>
