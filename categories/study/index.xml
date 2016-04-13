@@ -7,8 +7,120 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;#169; by Jackie Hu</copyright>
-    <lastBuildDate>Mon, 11 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 Apr 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://sleephu.github.io/categories/study/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SCJP Reading Notes - 5</title>
+      <link>http://sleephu.github.io/post/04-12-16/</link>
+      <pubDate>Tue, 12 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://sleephu.github.io/post/04-12-16/</guid>
+      <description>&lt;p&gt;Summary&lt;/p&gt;
+
+&lt;p&gt;It is reading notes about the book &amp;ndash; SCJP.&lt;/p&gt;
+
+&lt;p&gt;Generics and Collections&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Hashing retrieval:&lt;/p&gt;
+
+&lt;p&gt;a. find the right bucket(using hashCode())&lt;/p&gt;
+
+&lt;p&gt;b. search the bucket for the right element(using equals())&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;equals() v.s ==&lt;/p&gt;
+
+&lt;p&gt;equals(): object content meaningfully equal (the two object reference refer to the same object)&lt;/p&gt;
+
+&lt;p&gt;==: bits in the variables are identical&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;collection v.s Collection v.s Collections&lt;/p&gt;
+
+&lt;p&gt;a. collection: represent any of the data structure in which objects are sorted and iterated over&lt;/p&gt;
+
+&lt;p&gt;b. Collection: java.util.Collection interface from which Set, List, Queue extend&lt;/p&gt;
+
+&lt;p&gt;c. Collections: java.util.Collections holds a pile of static utility methods for use with collections&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ordered v.s sorted&lt;/p&gt;
+
+&lt;p&gt;a. ordered: iterate through the collection in a specific(non-random) order&lt;/p&gt;
+
+&lt;p&gt;b. sorted: the order in the collection is according to some rule, associate with the property of the objects themselves&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;List (a list of things)&lt;/p&gt;
+
+&lt;p&gt;a. ArrayList: faster iteration, not good for insertion/deletion&lt;/p&gt;
+
+&lt;p&gt;b. Vector: like slower ArrayList (synchronized, thread-safe)&lt;/p&gt;
+
+&lt;p&gt;c. LinkedList: faster insertion/deletion, not good for iteration&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Set (Uniqueness, unique of things)&lt;/p&gt;
+
+&lt;p&gt;a. HashSet: unsorted, unordered&lt;/p&gt;
+
+&lt;p&gt;b. LinkedHashSet: ordered version of HashSet (in the order of element insertion)&lt;/p&gt;
+
+&lt;p&gt;c. TreeSet: sorted, natural order by default, could construct with self-defined order by using comparable/comparator&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Map (unique identifier)&lt;/p&gt;
+
+&lt;p&gt;a. HashMap: unsorted, unordered, allow one null key and multiple null values&lt;/p&gt;
+
+&lt;p&gt;b. HashTable: synchronized HashMap, doesn&amp;rsquo;t allow anything that&amp;rsquo;s null&lt;/p&gt;
+
+&lt;p&gt;c. LinkedHashMap: ordered(insertion order), compared to HashMap, faster iteration, bad add/remove&lt;/p&gt;
+
+&lt;p&gt;d. TreeMap: Sorted Map(natural by default)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Queue (things arranged by order)&lt;/p&gt;
+
+&lt;p&gt;a. PriorityQueue: ordered by priority according to a comparator&lt;/p&gt;
+
+&lt;p&gt;b. LinkedList: basic queues, FIFO&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;See the following code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; List&amp;lt;String&amp;gt; myList = new ArrayList&amp;lt;String&amp;gt;();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Good things:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; a. follow OOP, coding into interface
+ b. use generics; &amp;lt;Strin&amp;gt; --&amp;gt; type of collection
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Useful methods&lt;/p&gt;
+
+&lt;p&gt;a. Collections.sort(anyCollectionToSort, comparator);&lt;/p&gt;
+
+&lt;p&gt;b. Arrays.sort(anyArrayToSort, comparator);&lt;/p&gt;
+
+&lt;p&gt;b. Arrays.asList()&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Generics benefit: type safe, dont need to cast, and won&amp;rsquo;t break other&amp;rsquo;s existing code&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The type of the variable declaration must match the type you pass to the actual object type, not a subtype of the decalared type&lt;/p&gt;
+
+&lt;p&gt;eg:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; List&amp;lt;Animal&amp;gt; animals = new ArrayList&amp;lt;Dog&amp;gt;(); // wrong, could only add Dog, if add Cat, then put the wrong thing, then compiler error
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;reason: Compiler and JVM behave differently, JVM doesn&amp;rsquo;t know about the type information, and it doesn&amp;rsquo;t have exception for generics (not like ArrayStoreException for Array)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;List&amp;lt;?&amp;gt; list v.s List&lt;Object&gt; list&lt;/p&gt;
+
+&lt;p&gt;totally different.&lt;/p&gt;
+
+&lt;p&gt;a. List&amp;lt;?&amp;gt; list: any type&lt;/p&gt;
+
+&lt;p&gt;b. List&lt;Object&gt; list: only allow List&lt;Object&gt;, not anything else, like List&lt;Animal&gt;, List&lt;Dog&gt; &amp;hellip;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>SCJP Reading Notes - 4</title>

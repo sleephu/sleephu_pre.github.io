@@ -14,8 +14,8 @@
     <meta name="description" content="">
     
     <meta name="generator" content="Hugo 0.15" />
-    <meta name="generation-date" content="2016-04-12 21:54:33.626612472 -0700 PDT">
-    <title>SCJP Reading Notes - 4 &middot; Jackie Hu Space</title>
+    <meta name="generation-date" content="2016-04-12 21:54:33.626566457 -0700 PDT">
+    <title>SCJP Reading Notes - 5 &middot; Jackie Hu Space</title>
     <link rel="shortcut icon" href="http://sleephu.github.io/img/favicon.ico">
     <link rel="icon" href="http://sleephu.github.io/img/favicon.ico">
     
@@ -181,8 +181,8 @@
                 
                 <article>
                     <header>
-                        <h1 class="article-title">SCJP Reading Notes - 4</h1>
-                        <time class="date-color">Mon Apr 11, 2016</time>
+                        <h1 class="article-title">SCJP Reading Notes - 5</h1>
+                        <time class="date-color">Tue Apr 12, 2016</time>
                         <span class="separator">|</span>
                         
 <ul class="categories">
@@ -219,170 +219,104 @@
 
 <p>It is reading notes about the book &ndash; SCJP.</p>
 
-<p>Operators</p>
+<p>Generics and Collections</p>
 
 <ol>
-<li><p>Compound operator: the expression on the right side of = will always evaluated first.</p>
+<li><p>Hashing retrieval:</p>
 
-<p>x *= 2 + 5; // x = x * (2 + 5);</p></li>
+<p>a. find the right bucket(using hashCode())</p>
 
-<li><p>String concatenation:</p>
+<p>b. search the bucket for the right element(using equals())</p></li>
 
-<pre><code> String a = &quot;String&quot;;
- int b = 3;
- int c = 7;
- System.out.println(a + b + c); // output: String37
- System.out.println(a + (b + c)); //output: String10
-</code></pre></li>
+<li><p>equals() v.s ==</p>
 
-<li><p>Variables marked final cannot be incremented or decremented</p></li>
+<p>equals(): object content meaningfully equal (the two object reference refer to the same object)</p>
 
-<li><p>^ operator(logical XOR): returns true if exactly one operand is true</p></li>
+<p>==: bits in the variables are identical</p></li>
 
-<li><p>Increment &amp; Decrement</p>
+<li><p>collection v.s Collection v.s Collections</p>
 
-<pre><code>  int x = 2; int y = 3;
-  if ((y == x++) | (x &lt; ++y)) {
-     System.out.println(&quot;x=&quot;+x+&quot;, y=&quot;+y);// output: x = 3, y = 4
-  }
-  a. y == x++ --&gt; false: compare y == x first, then x+1 -&gt; x = 3
-  b. x &lt; ++y --&gt; true: ++y first -&gt; y = 4, then compare x &lt; y ? -&gt; 3 &lt; 4 true
-  c. a | b --&gt; print
-</code></pre></li>
-</ol>
+<p>a. collection: represent any of the data structure in which objects are sorted and iterated over</p>
 
-<p>Flow Control, Exception &amp; Assertions</p>
+<p>b. Collection: java.util.Collection interface from which Set, List, Queue extend</p>
 
-<ol>
-<li><p>Switch case:</p>
+<p>c. Collections: java.util.Collections holds a pile of static utility methods for use with collections</p></li>
 
-<pre><code>eg:
-   switch(new Integer(4)) {
-      case 4: System.out.println(&quot;boxing is ok&quot;); // it is legal
-    }
-</code></pre></li>
+<li><p>ordered v.s sorted</p>
 
-<li><p>if break is omitted, the program keeps executing the remaining cases blocks until break found or switch ends</p></li>
+<p>a. ordered: iterate through the collection in a specific(non-random) order</p>
 
-<li><p>default case: use when none of case matched; it doesn&rsquo;t have to come at the end of switch</p></li>
+<p>b. sorted: the order in the collection is according to some rule, associate with the property of the objects themselves</p></li>
 
-<li><p>for loop</p>
+<li><p>List (a list of things)</p>
 
-<pre><code>  eg: 
-  a. for (initialization; condition; iteration) {}
-  b. none of the tree sections required 
-  for (;;) {System.out.println(&quot;inside an endless loop&quot;); }
-  c. don't need to increment or set anything, can put in virtually any arbitrary code statements you want to happend with each iteration of the loop
-     int b = 3;
-     for (int a = 1; b != 1; System.out.println(&quot;iterate&quot;)) {
-         b = b - a;
-     }
-      output: iterate
-              iterate
-</code></pre></li>
+<p>a. ArrayList: faster iteration, not good for insertion/deletion</p>
 
-<li><p>break v.s continue</p>
+<p>b. Vector: like slower ArrayList (synchronized, thread-safe)</p>
 
-<p>break: stop execution of the innermost loop, start the next line of code after block</p>
+<p>c. LinkedList: faster insertion/deletion, not good for iteration</p></li>
 
-<p>continue: cease current execution, start next iteration of same loop if condition is still met</p></li>
+<li><p>Set (Uniqueness, unique of things)</p>
 
-<li><p>Handling Exceptions</p>
+<p>a. HashSet: unsorted, unordered</p>
 
-<p>a. code</p>
+<p>b. LinkedHashSet: ordered version of HashSet (in the order of element insertion)</p>
 
-<pre><code>    try {
-     //some code, if put clearnup code here, it's easy to forget and redundent
-    } catch(Exception e) {
+<p>c. TreeSet: sorted, natural order by default, could construct with self-defined order by using comparable/comparator</p></li>
 
+<li><p>Map (unique identifier)</p>
 
-    } finally {
-      //clean up; release any system resource we allocate in the try clause
-     // code here is always runs even exception not caught/try not run, unless System.exit() issue in try or catch clause
-    }
-    it's legal to omit either the catch clause or the finally clause, but not both
+<p>a. HashMap: unsorted, unordered, allow one null key and multiple null values</p>
+
+<p>b. HashTable: synchronized HashMap, doesn&rsquo;t allow anything that&rsquo;s null</p>
+
+<p>c. LinkedHashMap: ordered(insertion order), compared to HashMap, faster iteration, bad add/remove</p>
+
+<p>d. TreeMap: Sorted Map(natural by default)</p></li>
+
+<li><p>Queue (things arranged by order)</p>
+
+<p>a. PriorityQueue: ordered by priority according to a comparator</p>
+
+<p>b. LinkedList: basic queues, FIFO</p></li>
+
+<li><p>See the following code:</p>
+
+<pre><code> List&lt;String&gt; myList = new ArrayList&lt;String&gt;();
 </code></pre>
 
-<p>b. Ducked exception: method call stack</p>
+<p>Good things:</p>
 
-<p>c. exceptions are always subclass of Java.lang.Exception</p>
+<pre><code> a. follow OOP, coding into interface
+ b. use generics; &lt;Strin&gt; --&gt; type of collection
+</code></pre></li>
 
-<p>two types:</p>
+<li><p>Useful methods</p>
 
-<pre><code>  Unchecked Exceptions: Error(Things that not normarlly happend during program execution (eg. JVM run out of memory)), RuntimeException
-  Checked Exception
-</code></pre>
+<p>a. Collections.sort(anyCollectionToSort, comparator);</p>
 
-<p>d. resist the temptation to write a single catch all exception handler</p>
+<p>b. Arrays.sort(anyArrayToSort, comparator);</p>
+
+<p>b. Arrays.asList()</p></li>
+
+<li><p>Generics benefit: type safe, dont need to cast, and won&rsquo;t break other&rsquo;s existing code</p></li>
+
+<li><p>The type of the variable declaration must match the type you pass to the actual object type, not a subtype of the decalared type</p>
 
 <p>eg:</p>
 
-<pre><code>   try {
-   // some code
-   } catch (Exception e) {
-     e.printStackTrace();
-     }
+<pre><code> List&lt;Animal&gt; animals = new ArrayList&lt;Dog&gt;(); // wrong, could only add Dog, if add Cat, then put the wrong thing, then compiler error
 </code></pre>
 
-<p>// it defeats design objective, lose valuable information, reduce reliability of program since it&rsquo;s likely an exception will be caught that the handler not know how to handle</p>
+<p>reason: Compiler and JVM behave differently, JVM doesn&rsquo;t know about the type information, and it doesn&rsquo;t have exception for generics (not like ArrayStoreException for Array)</p></li>
 
-<p>e. looking available catch clause from top down</p>
+<li><p>List&lt;?&gt; list v.s List<Object> list</p>
 
-<p>eg:</p>
+<p>totally different.</p>
 
-<pre><code>    try{
-      ...
-    }catch (FileNotFoundException fe) { 
-      ... 
-    }catch (IOException ie) {
-      ...
-    }
-</code></pre>
+<p>a. List&lt;?&gt; list: any type</p>
 
-<p>f. Handle or Declare: each method must either handle all checked exceptions(which is excluding Error and RuntimeException) by supplying a catch clause or list</p>
-
-<p>g. some examples for Error and RuntimeException</p>
-
-<pre><code> Error: StackOverflow (OS run out of space to store call stack)
- RuntimeException: NullpointerException, ArrayOutOfIndex
-</code></pre></li>
-</ol>
-
-<p>String, I/O, Formatting and Parsing</p>
-
-<ol>
-<li><p>String: immutable &ndash;&gt; once assign a value, the value can never change; use once, remain in memory forever</p>
-
-<pre><code>  eg: 
-  String x = &quot;Java&quot;;
-  x.concat(&quot; Rules!&quot;);
-  System.out.println(x); //output: Java
-</code></pre></li>
-
-<li><p>Specific case analysis</p>
-
-<pre><code>  eg:
-     String s1 = &quot;spring&quot;; //&quot;spring&quot; object referenced by s1
-     String s2 = s1 + &quot; summer&quot;;// &quot; summer&quot; object, lost; spring summer object, referenced by s2
-     s1.contact(&quot;fall &quot;); // &quot;fall &quot; object, lost; &quot;fall spring&quot; object, lost
-     s2.concat(s1); //&quot;spring summer spring&quot; object, lost
-     s1 += &quot; winter&quot;; //&quot;winter&quot; object, lost; &quot;spring winter&quot; object, referenced by s1, at the same time, &quot;spring&quot; object lost reference
-     System.out.println(s1 + &quot;  &quot;+ s2);// output: spring winter spring summer
-</code></pre></li>
-
-<li><p>String disanvertange: occupy large amount of memory, so JVM sets aside a special area of memory(String constant pool). When compiler encounters a string literal, it will check if the string literal in String constant pool or not first, if a match is found, no new objects created</p></li>
-
-<li><p>String v.s StringBuffer/StringBuilder</p>
-
-<p>String: immutable</p>
-
-<p>StringBuffer/StringBuilder: changable, use when you have to make a lot of modifications to Strings of characters; common use: file I/O, handle large block of data, pass it on, and then reuse the same memory to have the next block of data</p></li>
-
-<li><p>StringBuffer v.s StringBuilder</p>
-
-<p>StringBuffer: thread-safe, synchronization</p>
-
-<p>StringBuilder: faster, non-synchronization</p></li>
+<p>b. List<Object> list: only allow List<Object>, not anything else, like List<Animal>, List<Dog> &hellip;</p></li>
 </ol>
 
                         
@@ -396,9 +330,9 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'jackie_hu';
-        var disqus_identifier = 'http:\/\/sleephu.github.io\/post\/04-11-16\/';
-        var disqus_title = 'SCJP Reading Notes - 4';
-        var disqus_url = 'http:\/\/sleephu.github.io\/post\/04-11-16\/';
+        var disqus_identifier = 'http:\/\/sleephu.github.io\/post\/04-12-16\/';
+        var disqus_title = 'SCJP Reading Notes - 5';
+        var disqus_url = 'http:\/\/sleephu.github.io\/post\/04-12-16\/';
         (function() {
             
             if (window.location.hostname === "localhost") {
