@@ -14,7 +14,7 @@
     <meta name="description" content="">
     
     <meta name="generator" content="Hugo 0.15" />
-    <meta name="generation-date" content="2016-04-12 21:54:33.626566457 -0700 PDT">
+    <meta name="generation-date" content="2016-04-13 22:55:28.825912129 -0700 PDT">
     <title>SCJP Reading Notes - 5 &middot; Jackie Hu Space</title>
     <link rel="shortcut icon" href="http://sleephu.github.io/img/favicon.ico">
     <link rel="icon" href="http://sleephu.github.io/img/favicon.ico">
@@ -282,13 +282,13 @@
 
 <li><p>See the following code:</p>
 
-<pre><code> List&lt;String&gt; myList = new ArrayList&lt;String&gt;();
+<pre><code>List&lt;String&gt; myList = new ArrayList&lt;String&gt;();
 </code></pre>
 
 <p>Good things:</p>
 
-<pre><code> a. follow OOP, coding into interface
- b. use generics; &lt;Strin&gt; --&gt; type of collection
+<pre><code>a. follow OOP, coding into interface
+b. use generics; &lt;Strin&gt; --&gt; type of collection
 </code></pre></li>
 
 <li><p>Useful methods</p>
@@ -297,7 +297,7 @@
 
 <p>b. Arrays.sort(anyArrayToSort, comparator);</p>
 
-<p>b. Arrays.asList()</p></li>
+<p>c. Arrays.asList()</p></li>
 
 <li><p>Generics benefit: type safe, dont need to cast, and won&rsquo;t break other&rsquo;s existing code</p></li>
 
@@ -305,18 +305,18 @@
 
 <p>eg:</p>
 
-<pre><code> List&lt;Animal&gt; animals = new ArrayList&lt;Dog&gt;(); // wrong, could only add Dog, if add Cat, then put the wrong thing, then compiler error
+<pre><code>  List&lt;Animal&gt; animals = new ArrayList&lt;Dog&gt;(); // wrong, could only add Dog, if add Cat, then put the wrong thing, then compiler error
 </code></pre>
 
 <p>reason: Compiler and JVM behave differently, JVM doesn&rsquo;t know about the type information, and it doesn&rsquo;t have exception for generics (not like ArrayStoreException for Array)</p></li>
 
-<li><p>List&lt;?&gt; list v.s List<Object> list</p>
+<li><p>List&lt;?&gt; list v.s List list</p>
 
 <p>totally different.</p>
 
 <p>a. List&lt;?&gt; list: any type</p>
 
-<p>b. List<Object> list: only allow List<Object>, not anything else, like List<Animal>, List<Dog> &hellip;</p></li>
+<p>b. List list: only allow List, not anything else, like List, List &hellip;</p></li>
 </ol>
 
                         

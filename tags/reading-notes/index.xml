@@ -7,8 +7,143 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;#169; by Jackie Hu</copyright>
-    <lastBuildDate>Tue, 12 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Apr 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://sleephu.github.io/tags/reading-notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SCJP Reading Notes - 6</title>
+      <link>http://sleephu.github.io/post/04-13-16/</link>
+      <pubDate>Wed, 13 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://sleephu.github.io/post/04-13-16/</guid>
+      <description>&lt;p&gt;Summary&lt;/p&gt;
+
+&lt;p&gt;It is reading notes about the book &amp;ndash; SCJP.&lt;/p&gt;
+
+&lt;p&gt;Inner Class&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;inner class is part of outer class, can access outer class&amp;rsquo;s private(or any other) members (one of key benefits, special relationship with outer class object)&lt;/p&gt;
+
+&lt;p&gt;eg.
+       class MyOuter {
+          class MyInner {}
+        }&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Instantiate inner class:&lt;/p&gt;
+
+&lt;p&gt;a. inside outer class: MyInner inner = new MyInner();&lt;/p&gt;
+
+&lt;p&gt;b. outside outer class: MyOuter.MyInner inner = MyOuter.new MyInner();&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;method local inner class: class defined inside method; it cannot access method local variable, unless it&amp;rsquo;s marked as final, the only modifiers can apply to are abstract and final(unlike regular inner class, the modifiers are public, private, protected, final, abstract, etc.)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Anonymous Inner class&lt;/p&gt;
+
+&lt;p&gt;eg:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; Popcorn p = new Popcorn() {
+    public void pop() {
+      System.out.println(&amp;quot;anoymous popcorn&amp;quot;);
+    }
+ };
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Static Nested Class: is not inner class, is a static member of the enclosing class, like static method, it cannot access instance variables and nonstatic members of outer class
+ eg:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class BigOuter {
+    static vlass Nested {}
+ }
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Thread&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Define Thread&lt;/p&gt;
+
+&lt;p&gt;a. Extend java.lang.Thread (limitation: can&amp;rsquo;t extend anything else)&lt;/p&gt;
+
+&lt;p&gt;b. Implement Runnable interface (benefit: can extend any class)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;eg:
+   class MyRunnable implements Runnable {
+      public void run() {System.out.println(&amp;quot;implement job running in My Runnable&amp;quot;);}
+   }
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Instantiate thread&lt;/p&gt;
+
+&lt;p&gt;a. Thread t = new Thread();&lt;/p&gt;
+
+&lt;p&gt;b. need two classes&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;i. Thread class: thread-specific code
+ii. Runnable implementation class: job that should be run by a thread code
+eg:
+  i. instantiate runnable class
+     MyRunnable r = new MyRunnable();
+  ii. still need an instance of java.lang.Thread
+     Thread t = new Thread(r); //pass Runnable to thread
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;It&amp;rsquo;s legal the Thread itself implements Runnable&lt;/p&gt;
+
+&lt;p&gt;eg:&lt;/p&gt;
+
+&lt;p&gt;Thread t = new Thread(new MyThread());&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;A thread is dead after run() method completes, the isAlive() is the best way to determine that; debug: getState()&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Starting thread: t.start(), only start once&lt;/p&gt;
+
+&lt;p&gt;process: start &amp;ndash;&amp;gt; go to runnable pool &amp;ndash;&amp;gt; jvm select &amp;ndash;&amp;gt; running&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;which thread is running? Thread.currentThread().getName()&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Nothing is guaranteed, except: each thread will start, and each thread will run to completion&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;which thread run first?&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;s the Thread Scheduler, which is part of JVM, could schedule thread to run based on thread priority(1-10, bigger, higher), but not guaranteed.
+ eg:
+    t.setPriority(8)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;yield(): make currently running thread head back and make other with same priority get their turn&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;join(): join at the end of the current running thread&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Thread problem: two different threads can access to a single instance of class?(multiple threads access to the same resource)&lt;/p&gt;
+
+&lt;p&gt;eg.&lt;/p&gt;
+
+&lt;p&gt;Two people each have checkbook, access to a single checking account&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Check the balance&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;if have enough money, make the withdrawal&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;It&amp;rsquo;s race condition, may produce corrupted data.&lt;/p&gt;
+
+&lt;p&gt;Way to Protect: automic operation&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; i. make variable private
+ ii. Synchronize the code that modifies the variable
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Thread-safe class: class synchronized to protect its data&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;wait(), notify(), notifyAll() are all instance methods of Object&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;wait(): make thread go to waiting pool, if is current, gives up lock immediately&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;notify(): notify certain thread in the waiting pool to get ready to get the lock(lock may be not available immediately)&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>SCJP Reading Notes - 5</title>
@@ -83,13 +218,13 @@
 
 &lt;li&gt;&lt;p&gt;See the following code:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt; List&amp;lt;String&amp;gt; myList = new ArrayList&amp;lt;String&amp;gt;();
+&lt;pre&gt;&lt;code&gt;List&amp;lt;String&amp;gt; myList = new ArrayList&amp;lt;String&amp;gt;();
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Good things:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt; a. follow OOP, coding into interface
- b. use generics; &amp;lt;Strin&amp;gt; --&amp;gt; type of collection
+&lt;pre&gt;&lt;code&gt;a. follow OOP, coding into interface
+b. use generics; &amp;lt;Strin&amp;gt; --&amp;gt; type of collection
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Useful methods&lt;/p&gt;
@@ -98,7 +233,7 @@
 
 &lt;p&gt;b. Arrays.sort(anyArrayToSort, comparator);&lt;/p&gt;
 
-&lt;p&gt;b. Arrays.asList()&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;c. Arrays.asList()&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Generics benefit: type safe, dont need to cast, and won&amp;rsquo;t break other&amp;rsquo;s existing code&lt;/p&gt;&lt;/li&gt;
 
@@ -106,18 +241,18 @@
 
 &lt;p&gt;eg:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt; List&amp;lt;Animal&amp;gt; animals = new ArrayList&amp;lt;Dog&amp;gt;(); // wrong, could only add Dog, if add Cat, then put the wrong thing, then compiler error
+&lt;pre&gt;&lt;code&gt;  List&amp;lt;Animal&amp;gt; animals = new ArrayList&amp;lt;Dog&amp;gt;(); // wrong, could only add Dog, if add Cat, then put the wrong thing, then compiler error
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;reason: Compiler and JVM behave differently, JVM doesn&amp;rsquo;t know about the type information, and it doesn&amp;rsquo;t have exception for generics (not like ArrayStoreException for Array)&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;List&amp;lt;?&amp;gt; list v.s List&lt;Object&gt; list&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;List&amp;lt;?&amp;gt; list v.s List list&lt;/p&gt;
 
 &lt;p&gt;totally different.&lt;/p&gt;
 
 &lt;p&gt;a. List&amp;lt;?&amp;gt; list: any type&lt;/p&gt;
 
-&lt;p&gt;b. List&lt;Object&gt; list: only allow List&lt;Object&gt;, not anything else, like List&lt;Animal&gt;, List&lt;Dog&gt; &amp;hellip;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;b. List list: only allow List, not anything else, like List, List &amp;hellip;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>

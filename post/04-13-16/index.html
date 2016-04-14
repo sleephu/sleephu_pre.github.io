@@ -14,8 +14,8 @@
     <meta name="description" content="">
     
     <meta name="generator" content="Hugo 0.15" />
-    <meta name="generation-date" content="2016-04-13 22:55:28.834179006 -0700 PDT">
-    <title>Ship &middot; Jackie Hu Space</title>
+    <meta name="generation-date" content="2016-04-13 22:55:28.825448966 -0700 PDT">
+    <title>SCJP Reading Notes - 6 &middot; Jackie Hu Space</title>
     <link rel="shortcut icon" href="http://sleephu.github.io/img/favicon.ico">
     <link rel="icon" href="http://sleephu.github.io/img/favicon.ico">
     
@@ -82,7 +82,7 @@
                     
                     </li>
                 
-                    <li class="active">
+                    <li >
                     
                         <a href="http://sleephu.github.io//model/">
                             
@@ -91,7 +91,7 @@
                     
                     </li>
                 
-                    <li >
+                    <li class="active">
                     
                         <a href="http://sleephu.github.io//post/">
                             
@@ -177,18 +177,20 @@
         <div class="center-space">
             <div class="article-colors">
                 
-                    <img src="/img/ship.jpg" class="fill-container-width"></img>
+                    <img src="/img/reading.jpg" class="fill-container-width"></img>
                 
                 <article>
                     <header>
-                        <h1 class="article-title">Ship</h1>
-                        <time class="date-color">Tue Mar 09, 1999</time>
+                        <h1 class="article-title">SCJP Reading Notes - 6</h1>
+                        <time class="date-color">Wed Apr 13, 2016</time>
                         <span class="separator">|</span>
                         
 <ul class="categories">
     <li>
         <i class="fa fa-book"></i>
     </li>
+    
+        <li><a href="http://sleephu.github.io/categories/study">Study</a></li>
     
 </ul>
 
@@ -200,6 +202,10 @@
         <i class="fa fa-tags"></i>
     </li>
     
+        <li><a href="http://sleephu.github.io/tags/java">java</a></li>
+    
+        <li><a href="http://sleephu.github.io/tags/reading-notes">reading notes</a></li>
+    
 </ul>
 
 
@@ -209,7 +215,133 @@
 
                     <section>
                         
-                            
+                            <p>Summary</p>
+
+<p>It is reading notes about the book &ndash; SCJP.</p>
+
+<p>Inner Class</p>
+
+<ol>
+<li><p>inner class is part of outer class, can access outer class&rsquo;s private(or any other) members (one of key benefits, special relationship with outer class object)</p>
+
+<p>eg.
+       class MyOuter {
+          class MyInner {}
+        }</p></li>
+
+<li><p>Instantiate inner class:</p>
+
+<p>a. inside outer class: MyInner inner = new MyInner();</p>
+
+<p>b. outside outer class: MyOuter.MyInner inner = MyOuter.new MyInner();</p></li>
+
+<li><p>method local inner class: class defined inside method; it cannot access method local variable, unless it&rsquo;s marked as final, the only modifiers can apply to are abstract and final(unlike regular inner class, the modifiers are public, private, protected, final, abstract, etc.)</p></li>
+
+<li><p>Anonymous Inner class</p>
+
+<p>eg:</p>
+
+<pre><code> Popcorn p = new Popcorn() {
+    public void pop() {
+      System.out.println(&quot;anoymous popcorn&quot;);
+    }
+ };
+</code></pre></li>
+
+<li><p>Static Nested Class: is not inner class, is a static member of the enclosing class, like static method, it cannot access instance variables and nonstatic members of outer class
+ eg:</p>
+
+<pre><code>class BigOuter {
+    static vlass Nested {}
+ }
+</code></pre></li>
+</ol>
+
+<p>Thread</p>
+
+<ol>
+<li><p>Define Thread</p>
+
+<p>a. Extend java.lang.Thread (limitation: can&rsquo;t extend anything else)</p>
+
+<p>b. Implement Runnable interface (benefit: can extend any class)</p>
+
+<pre><code>eg:
+   class MyRunnable implements Runnable {
+      public void run() {System.out.println(&quot;implement job running in My Runnable&quot;);}
+   }
+</code></pre></li>
+
+<li><p>Instantiate thread</p>
+
+<p>a. Thread t = new Thread();</p>
+
+<p>b. need two classes</p>
+
+<pre><code>i. Thread class: thread-specific code
+ii. Runnable implementation class: job that should be run by a thread code
+eg:
+  i. instantiate runnable class
+     MyRunnable r = new MyRunnable();
+  ii. still need an instance of java.lang.Thread
+     Thread t = new Thread(r); //pass Runnable to thread
+</code></pre></li>
+
+<li><p>It&rsquo;s legal the Thread itself implements Runnable</p>
+
+<p>eg:</p>
+
+<p>Thread t = new Thread(new MyThread());</p></li>
+
+<li><p>A thread is dead after run() method completes, the isAlive() is the best way to determine that; debug: getState()</p></li>
+
+<li><p>Starting thread: t.start(), only start once</p>
+
+<p>process: start &ndash;&gt; go to runnable pool &ndash;&gt; jvm select &ndash;&gt; running</p></li>
+
+<li><p>which thread is running? Thread.currentThread().getName()</p></li>
+
+<li><p>Nothing is guaranteed, except: each thread will start, and each thread will run to completion</p></li>
+
+<li><p>which thread run first?</p>
+
+<p>There&rsquo;s the Thread Scheduler, which is part of JVM, could schedule thread to run based on thread priority(1-10, bigger, higher), but not guaranteed.
+ eg:
+    t.setPriority(8)</p></li>
+
+<li><p>yield(): make currently running thread head back and make other with same priority get their turn</p></li>
+
+<li><p>join(): join at the end of the current running thread</p></li>
+
+<li><p>Thread problem: two different threads can access to a single instance of class?(multiple threads access to the same resource)</p>
+
+<p>eg.</p>
+
+<p>Two people each have checkbook, access to a single checking account</p>
+
+<ol>
+<li><p>Check the balance</p></li>
+
+<li><p>if have enough money, make the withdrawal</p></li>
+</ol>
+
+<p>It&rsquo;s race condition, may produce corrupted data.</p>
+
+<p>Way to Protect: automic operation</p>
+
+<pre><code> i. make variable private
+ ii. Synchronize the code that modifies the variable
+</code></pre></li>
+
+<li><p>Thread-safe class: class synchronized to protect its data</p></li>
+
+<li><p>wait(), notify(), notifyAll() are all instance methods of Object</p></li>
+
+<li><p>wait(): make thread go to waiting pool, if is current, gives up lock immediately</p></li>
+
+<li><p>notify(): notify certain thread in the waiting pool to get ready to get the lock(lock may be not available immediately)</p></li>
+</ol>
+
                         
                     </section>
 
@@ -221,9 +353,9 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'jackie_hu';
-        var disqus_identifier = 'http:\/\/sleephu.github.io\/model\/ship\/';
-        var disqus_title = 'Ship';
-        var disqus_url = 'http:\/\/sleephu.github.io\/model\/ship\/';
+        var disqus_identifier = 'http:\/\/sleephu.github.io\/post\/04-13-16\/';
+        var disqus_title = 'SCJP Reading Notes - 6';
+        var disqus_url = 'http:\/\/sleephu.github.io\/post\/04-13-16\/';
         (function() {
             
             if (window.location.hostname === "localhost") {
